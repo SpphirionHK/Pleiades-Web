@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pleiades favicon">
+  <rect width="64" height="64" fill="#123A5A"/>
+  <circle cx="32" cy="32" r="18" fill="none" stroke="#F28C28" stroke-width="4"/>
+  <path d="M20 36h15c6 0 9-3 9-8s-3-8-9-8H20v32" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="square"/>
+</svg>

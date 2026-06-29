@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #20272d;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  outline-color: #f28c28;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: rgba(242, 140, 40, 0.24);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.technical-grid {
+  background-image:
+    linear-gradient(rgba(18, 58, 90, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 58, 90, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.fade-in {
+  animation: fade-in 560ms ease-out both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

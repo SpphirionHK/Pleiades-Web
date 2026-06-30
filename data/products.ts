@@ -370,7 +370,7 @@ export const productModels: ProductModel[] = [
 
 export const productMenuFamilies: ProductMenuFamily[] = [
   {
-    name: "Portable Collimators",
+    name: "Optical Measurement Instrument",
     description: "Field-deployable collimators for infinity-target simulation, alignment and calibration.",
     image: "/images/collimator-product.jpg",
     href: "/products/portabeam",
@@ -393,7 +393,7 @@ export const productMenuFamilies: ProductMenuFamily[] = [
     ]
   },
   {
-    name: "Optical Testing Systems",
+    name: "Optical Testing Accessories",
     description: "Autocollimation, alignment and wavefront testing systems for labs and integration teams.",
     image: "/images/optical-laboratory.jpg",
     href: "/products/collimators",
@@ -416,7 +416,7 @@ export const productMenuFamilies: ProductMenuFamily[] = [
     ]
   },
   {
-    name: "Laser and Optical Components",
+    name: "Confocal Microscope Objective",
     description: "Beam conditioning, infrared windows and precision optical assemblies.",
     image: "/images/laser-communication.jpg",
     href: "/products/optical-components",
@@ -439,7 +439,7 @@ export const productMenuFamilies: ProductMenuFamily[] = [
     ]
   },
   {
-    name: "Custom Opto-Mechanical Systems",
+    name: "Support Fixtures",
     description: "Application-specific optical design, integration and test fixtures.",
     image: "/images/engineering-team.jpg",
     href: "/technology",

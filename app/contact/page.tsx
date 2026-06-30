@@ -39,6 +39,7 @@ export default function ContactPage() {
           <InquiryForm />
         </div>
       </section>
+      <MapSection />
       <CTASection />
     </>
   );
@@ -137,6 +138,83 @@ function InquiryForm() {
       </p>
     </form>
   );
+}
+
+function MapSection() {
+  const mapQuery = encodeURIComponent(company.officeAddress);
+  const mapUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+
+  return (
+    <section className="bg-white px-6 py-20">
+      <div className="mx-auto grid max-w-7xl overflow-hidden border border-industrial-200 bg-white shadow-soft lg:grid-cols-[0.72fr_1.28fr]">
+        <div className="bg-accent-blue p-8 text-white md:p-10">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/75">
+            Location
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold leading-tight md:text-4xl">
+            Visit Pleiades Optoelectronics
+          </h2>
+          <div className="mt-8 grid gap-5">
+            <InfoBlock icon={MapPin} label="Address" value={company.officeAddress} />
+            <InfoBlock icon={Mail} label="Email" value={company.email} href={`mailto:${company.email}`} />
+            <InfoBlock icon={Phone} label="Telephone" value={company.phone} href={`tel:${company.phone}`} />
+          </div>
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
+            className="mt-8 inline-flex min-h-11 items-center justify-center border border-white/45 px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-accent-blue"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open in Google Maps
+          </a>
+        </div>
+        <div className="min-h-[420px] bg-industrial-100">
+          <iframe
+            title="Google map showing HKSTP 19W"
+            src={mapUrl}
+            className="h-full min-h-[420px] w-full border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function InfoBlock({
+  icon: Icon,
+  label,
+  value,
+  href
+}: {
+  icon: typeof Mail;
+  label: string;
+  value: string;
+  href?: string;
+}) {
+  const content = (
+    <>
+      <Icon aria-hidden="true" size={22} className="mt-1 shrink-0" />
+      <span>
+        <span className="block text-xs font-bold uppercase tracking-[0.14em] text-white/62">
+          {label}
+        </span>
+        <span className="mt-1 block text-base font-semibold leading-6 text-white">{value}</span>
+      </span>
+    </>
+  );
+
+  if (href) {
+    return (
+      <a href={href} className="flex gap-4 text-white transition hover:text-white/78">
+        {content}
+      </a>
+    );
+  }
+
+  return <div className="flex gap-4 text-white">{content}</div>;
 }
 
 function Field({

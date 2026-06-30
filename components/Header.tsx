@@ -4,7 +4,7 @@ import { ChevronDown, Mail, MapPin, Menu, Phone, Search, X } from "lucide-react"
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { MegaMenu } from "@/components/MegaMenu";
 import { productMenuFamilies } from "@/data/products";
@@ -23,13 +23,29 @@ export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
+  const [showTopBar, setShowTopBar] = useState(true);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === href : pathname.startsWith(href);
 
+  useEffect(() => {
+    const updateTopBarVisibility = () => {
+      setShowTopBar(window.scrollY < 12);
+    };
+
+    updateTopBarVisibility();
+    window.addEventListener("scroll", updateTopBarVisibility, { passive: true });
+
+    return () => window.removeEventListener("scroll", updateTopBarVisibility);
+  }, []);
+
   return (
     <header className="sticky top-0 z-50 bg-white shadow-[0_2px_10px_rgba(17,24,32,0.12)]">
-      <div className="hidden bg-accent-blue text-white md:block">
+      <div
+        className={`hidden overflow-hidden bg-accent-blue text-white transition-[max-height,opacity,transform] duration-300 ease-out md:block ${
+          showTopBar ? "max-h-14 opacity-100 translate-y-0" : "max-h-0 -translate-y-2 opacity-0"
+        }`}
+      >
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 text-sm">
           <div className="flex flex-wrap items-center gap-9">
             <a className="inline-flex items-center gap-3 hover:text-white/80" href={`mailto:${siteConfig.email}`}>

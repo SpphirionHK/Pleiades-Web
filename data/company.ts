@@ -6,7 +6,7 @@ export const company = {
   location: siteConfig.location,
   email: siteConfig.email,
   phone: siteConfig.phone,
-  officeAddress: "19W, HKSTP (HK SAR)",
+  officeAddress: "HKSTP 19W",
   whatsapp: "WhatsApp contact to be confirmed",
   linkedin: "LinkedIn profile to be added",
   distributorInquiries: siteConfig.email,

@@ -141,8 +141,8 @@ function InquiryForm() {
 }
 
 function MapSection() {
-  const mapQuery = encodeURIComponent(company.officeAddress);
-  const mapUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+  const building19WCoordinates = "22.426947,114.208589";
+  const mapUrl = `https://www.google.com/maps?q=${building19WCoordinates}&z=18&output=embed`;
 
   return (
     <section className="bg-white px-6 py-20">
@@ -160,7 +160,7 @@ function MapSection() {
             <InfoBlock icon={Phone} label="Telephone" value={company.phone} href={`tel:${company.phone}`} />
           </div>
           <a
-            href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
+            href={`https://www.google.com/maps/search/?api=1&query=${building19WCoordinates}`}
             className="mt-8 inline-flex min-h-11 items-center justify-center border border-white/45 px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-accent-blue"
             target="_blank"
             rel="noreferrer"

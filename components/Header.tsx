@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { MegaMenu } from "@/components/MegaMenu";
+import { productMenuFamilies } from "@/data/products";
 import { siteConfig } from "@/lib/site";
 
 const navItems = [
@@ -16,12 +17,6 @@ const navItems = [
   { label: "About Us", href: "/about" },
   { label: "Downloads", href: "/downloads" },
   { label: "Contact", href: "/contact" }
-];
-
-const mobileProductLinks = [
-  { label: "PortaBeam Portable Collimator", href: "/products/portabeam" },
-  { label: "Collimators and Testing Systems", href: "/products/collimators" },
-  { label: "Optical Components", href: "/products/optical-components" }
 ];
 
 export function Header() {
@@ -131,16 +126,38 @@ export function Header() {
               />
             </button>
             {productsOpen ? (
-              <div className="border-b border-industrial-200 py-2">
-                {mobileProductLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="block min-h-11 px-4 py-3 text-sm text-industrial-500"
-                    onClick={() => setOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
+              <div className="border-b border-industrial-200 py-3">
+                {productMenuFamilies.map((family) => (
+                  <div key={family.name} className="py-2">
+                    <Link
+                      href={family.href}
+                      className="block px-4 py-2 text-sm font-semibold text-navy-900"
+                      onClick={() => setOpen(false)}
+                    >
+                      {family.name}
+                    </Link>
+                    <div className="mt-1 space-y-3 border-l border-industrial-200 pl-4">
+                      {family.types.map((type) => (
+                        <div key={type.name}>
+                          <p className="px-4 text-xs font-bold uppercase tracking-[0.12em] text-accent-blue">
+                            {type.name}
+                          </p>
+                          <div className="mt-1 grid gap-1">
+                            {type.models.map((model) => (
+                              <Link
+                                key={model.slug}
+                                href={`/products/models/${model.slug}`}
+                                className="block min-h-10 px-4 py-2 text-sm text-industrial-500"
+                                onClick={() => setOpen(false)}
+                              >
+                                {model.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             ) : null}

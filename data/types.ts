@@ -38,6 +38,34 @@ export type ProductCategory = {
   status: ContentStatus;
 };
 
+export type ProductModel = {
+  slug: string;
+  name: string;
+  family: string;
+  type: string;
+  shortDescription: string;
+  description: string;
+  image: string;
+  applications: string[];
+  features: string[];
+  specifications: Specification[];
+  status: ContentStatus;
+};
+
+export type ProductMenuType = {
+  name: string;
+  description: string;
+  models: ProductModel[];
+};
+
+export type ProductMenuFamily = {
+  name: string;
+  description: string;
+  image: string;
+  href: string;
+  types: ProductMenuType[];
+};
+
 export type Application = {
   slug: string;
   name: string;

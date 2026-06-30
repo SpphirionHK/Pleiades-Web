@@ -1,4 +1,4 @@
-import type { Product, ProductCategory } from "@/data/types";
+import type { Product, ProductCategory, ProductMenuFamily, ProductModel } from "@/data/types";
 
 export const portaBeam: Product = {
   slug: "portabeam",
@@ -141,5 +141,314 @@ export const productCategories: ProductCategory[] = [
       "Custom optical design, mechanical integration and fixture development for demanding programs.",
     href: "/technology",
     status: "draft"
+  }
+];
+
+export const productModels: ProductModel[] = [
+  {
+    slug: "portabeam-pb-c100",
+    name: "PortaBeam PB-C100",
+    family: "Portable Collimators",
+    type: "Cassegrain Portable Collimators",
+    shortDescription: "Compact Cassegrain portable collimator for visible and near-infrared alignment.",
+    description:
+      "PB-C100 is a compact coaxial reflective collimator concept for laboratory and field calibration workflows that require a portable infinity-target source.",
+    image: "/images/collimator-product.jpg",
+    applications: ["UAV camera calibration", "Visible camera focus verification", "Portable alignment benches"],
+    features: ["Coaxial reflective architecture", "Compact mechanical envelope", "Interchangeable reticle support"],
+    specifications: [
+      { label: "Optical architecture", value: "Cassegrain reflective", status: "draft" },
+      { label: "Nominal aperture", value: "100 mm class", status: "draft" },
+      { label: "Spectral configuration", value: "VIS / NIR by design", status: "draft" },
+      { label: "Mounting", value: "Tripod or bench interface", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "portabeam-pb-c150",
+    name: "PortaBeam PB-C150",
+    family: "Portable Collimators",
+    type: "Cassegrain Portable Collimators",
+    shortDescription: "Larger-aperture Cassegrain configuration for higher-resolution target simulation.",
+    description:
+      "PB-C150 extends the PortaBeam coaxial architecture for applications that need a larger aperture and a more capable portable calibration setup.",
+    image: "/images/portabeam-field-demo.jpg",
+    applications: ["EO payload verification", "Camera boresight checks", "Laboratory acceptance testing"],
+    features: ["Larger aperture configuration", "Field-deployable structure", "Application-specific illumination"],
+    specifications: [
+      { label: "Optical architecture", value: "Cassegrain reflective", status: "draft" },
+      { label: "Nominal aperture", value: "150 mm class", status: "draft" },
+      { label: "Reticles", value: "Crosshair, radial, resolution or custom", status: "draft" },
+      { label: "Deployment", value: "Laboratory and field use", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "portabeam-pb-oa80",
+    name: "PortaBeam PB-OA80",
+    family: "Portable Collimators",
+    type: "Off-Axis Reflective Collimators",
+    shortDescription: "Off-axis portable collimator configuration without central obstruction.",
+    description:
+      "PB-OA80 is an off-axis reflective collimator concept for visible and infrared optical testing where unobstructed beam geometry is preferred.",
+    image: "/images/infrared-testing.jpg",
+    applications: ["Infrared sensor alignment", "Thermal camera verification", "Low-obstruction optical testing"],
+    features: ["Off-axis reflective path", "No central obstruction", "Infrared-ready configuration"],
+    specifications: [
+      { label: "Optical architecture", value: "Off-axis reflective", status: "draft" },
+      { label: "Nominal aperture", value: "80 mm class", status: "draft" },
+      { label: "Spectral configuration", value: "VIS / NIR / IR by design", status: "draft" },
+      { label: "Central obstruction", value: "None", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "portabeam-pb-oa120",
+    name: "PortaBeam PB-OA120",
+    family: "Portable Collimators",
+    type: "Off-Axis Reflective Collimators",
+    shortDescription: "Mid-aperture off-axis reflective collimator for EO/IR payload work.",
+    description:
+      "PB-OA120 provides an unobstructed reflective optical path for EO/IR calibration workflows that benefit from portable setup and flexible mounting.",
+    image: "/images/portabeam-optical-layout.jpg",
+    applications: ["EO/IR payload calibration", "Boresight alignment", "Infrared target simulation"],
+    features: ["Unobstructed beam path", "Mid-aperture configuration", "Custom target module support"],
+    specifications: [
+      { label: "Optical architecture", value: "Off-axis reflective", status: "draft" },
+      { label: "Nominal aperture", value: "120 mm class", status: "draft" },
+      { label: "Target module", value: "Application-specific reticle and illumination", status: "draft" },
+      { label: "Use case", value: "EO/IR field and laboratory testing", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "portabeam-pb-dr100",
+    name: "PortaBeam PB-DR100",
+    family: "Portable Collimators",
+    type: "Double-Reflective Collimators",
+    shortDescription: "Double-reflective off-axis configuration for advanced infrared applications.",
+    description:
+      "PB-DR100 is a double-reflective portable collimator concept for advanced infrared testing where folded geometry and unobstructed optical performance are important.",
+    image: "/images/portabeam-optical-layout.jpg",
+    applications: ["Advanced IR sensor testing", "Folded optical bench layouts", "Thermal imaging alignment"],
+    features: ["Double-reflective layout", "Infrared-focused configuration", "Folded optical path"],
+    specifications: [
+      { label: "Optical architecture", value: "Double-reflective off-axis", status: "draft" },
+      { label: "Nominal aperture", value: "100 mm class", status: "draft" },
+      { label: "Spectral configuration", value: "IR-oriented by design", status: "draft" },
+      { label: "Layout", value: "Folded reflective path", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "autocollimation-ac-200",
+    name: "AC-200 Autocollimation System",
+    family: "Optical Testing Systems",
+    type: "Autocollimation Systems",
+    shortDescription: "Bench-oriented autocollimation configuration for angular alignment workflows.",
+    description:
+      "AC-200 is a configurable autocollimation system concept for checking angular alignment, fixture repeatability and optical-axis references.",
+    image: "/images/optical-laboratory.jpg",
+    applications: ["Angular alignment", "Fixture verification", "Optical-axis reference setup"],
+    features: ["Bench setup", "Precision angular reference", "Configurable target and detector options"],
+    specifications: [
+      { label: "System type", value: "Autocollimation", status: "draft" },
+      { label: "Setup", value: "Bench or fixture-mounted", status: "draft" },
+      { label: "Configuration", value: "Customer-defined acceptance criteria", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "alignment-oa-kit",
+    name: "OA Alignment Kit",
+    family: "Optical Testing Systems",
+    type: "Optical Alignment Systems",
+    shortDescription: "Modular optical alignment kit for payload and laboratory integration.",
+    description:
+      "OA Alignment Kit is a modular system concept for building repeatable optical alignment workflows around customer payloads and fixtures.",
+    image: "/images/engineering-team.jpg",
+    applications: ["Payload integration", "Laboratory alignment", "Custom optical fixtures"],
+    features: ["Modular fixture architecture", "Custom reference tooling", "Portable workflow support"],
+    specifications: [
+      { label: "System type", value: "Modular alignment kit", status: "draft" },
+      { label: "Fixture", value: "Application-specific", status: "draft" },
+      { label: "Documentation", value: "Workflow and acceptance records", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "wavefront-wt-100",
+    name: "WT-100 Wavefront Test Bench",
+    family: "Optical Testing Systems",
+    type: "Wavefront Testing Solutions",
+    shortDescription: "Configurable wavefront test bench for optical subsystem verification.",
+    description:
+      "WT-100 is a wavefront testing bench concept for verifying optical subsystem quality with configurable source, fixture and acceptance setup.",
+    image: "/images/optical-laboratory.jpg",
+    applications: ["Wavefront verification", "Optical subsystem acceptance", "Research laboratory testing"],
+    features: ["Configurable bench layout", "Traceable test workflow", "Application-specific fixture integration"],
+    specifications: [
+      { label: "System type", value: "Wavefront test bench", status: "draft" },
+      { label: "Configuration", value: "Source, fixture and detector dependent", status: "draft" },
+      { label: "Output", value: "Inspection and acceptance records", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "laser-beam-expander-lbx",
+    name: "LBX Laser Beam Expander",
+    family: "Laser and Optical Components",
+    type: "Laser Beam Expanders",
+    shortDescription: "Laser beam expansion module for alignment and photonics systems.",
+    description:
+      "LBX is a configurable laser beam expander concept for photonics alignment, optical communication and beam-conditioning applications.",
+    image: "/images/laser-communication.jpg",
+    applications: ["Laser communication alignment", "Beam conditioning", "Photonics bench setup"],
+    features: ["Configurable expansion ratio", "Opto-mechanical integration", "Application-specific coating selection"],
+    specifications: [
+      { label: "Component type", value: "Laser beam expander", status: "draft" },
+      { label: "Expansion ratio", value: "Application-specific", status: "draft" },
+      { label: "Wavelength", value: "Defined by laser source", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "infrared-window-iw-series",
+    name: "IW Series Infrared Window",
+    family: "Laser and Optical Components",
+    type: "Infrared Optical Components",
+    shortDescription: "Infrared window component family for NIR through LWIR configurations.",
+    description:
+      "IW Series covers infrared window concepts and assemblies for sensor protection, transmission and environmental adaptation.",
+    image: "/images/infrared-testing.jpg",
+    applications: ["IR sensor windows", "Environmental optical interfaces", "Thermal imaging systems"],
+    features: ["Material selection support", "Coating selection", "Custom aperture and mounting"],
+    specifications: [
+      { label: "Component type", value: "Infrared window", status: "draft" },
+      { label: "Spectral band", value: "NIR / MWIR / LWIR by material", status: "draft" },
+      { label: "Mounting", value: "Custom mechanical interface", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "wedge-prism-wp-series",
+    name: "WP Series Wedge Prism Assembly",
+    family: "Laser and Optical Components",
+    type: "Precision Optical Components",
+    shortDescription: "Precision wedge prism assemblies for beam steering and alignment.",
+    description:
+      "WP Series is a configurable wedge prism assembly concept for beam steering, alignment correction and precision optical paths.",
+    image: "/images/portabeam-optical-layout.jpg",
+    applications: ["Beam steering", "Alignment correction", "Precision optical modules"],
+    features: ["Custom wedge angle", "Coating selection", "Assembly and mounting support"],
+    specifications: [
+      { label: "Component type", value: "Wedge prism assembly", status: "draft" },
+      { label: "Geometry", value: "Application-specific wedge angle", status: "draft" },
+      { label: "Coating", value: "Defined by wavelength and environment", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "custom-fixture-cfx",
+    name: "CFX Custom Test Fixture",
+    family: "Custom Opto-Mechanical Systems",
+    type: "Custom Testing Fixtures",
+    shortDescription: "Custom fixture concept for repeatable optical testing and integration workflows.",
+    description:
+      "CFX is a custom opto-mechanical fixture development path for customers who need repeatable alignment, test positioning or payload integration support.",
+    image: "/images/engineering-team.jpg",
+    applications: ["Custom payload fixtures", "Repeatable test workflows", "Opto-mechanical integration"],
+    features: ["Requirement-driven design", "Optical and mechanical integration", "Documentation for repeatable setup"],
+    specifications: [
+      { label: "System type", value: "Custom opto-mechanical fixture", status: "draft" },
+      { label: "Design basis", value: "Customer payload and test workflow", status: "draft" },
+      { label: "Deliverables", value: "Fixture, workflow and verification records", status: "draft" }
+    ],
+    status: "draft"
+  }
+];
+
+export const productMenuFamilies: ProductMenuFamily[] = [
+  {
+    name: "Portable Collimators",
+    description: "Field-deployable collimators for infinity-target simulation, alignment and calibration.",
+    image: "/images/collimator-product.jpg",
+    href: "/products/portabeam",
+    types: [
+      {
+        name: "Cassegrain Portable Collimators",
+        description: "Coaxial reflective architecture for compact portable calibration.",
+        models: productModels.filter((model) => model.type === "Cassegrain Portable Collimators")
+      },
+      {
+        name: "Off-Axis Reflective Collimators",
+        description: "Unobstructed reflective path for VIS, NIR and IR testing.",
+        models: productModels.filter((model) => model.type === "Off-Axis Reflective Collimators")
+      },
+      {
+        name: "Double-Reflective Collimators",
+        description: "Folded reflective designs for advanced infrared and compact layouts.",
+        models: productModels.filter((model) => model.type === "Double-Reflective Collimators")
+      }
+    ]
+  },
+  {
+    name: "Optical Testing Systems",
+    description: "Autocollimation, alignment and wavefront testing systems for labs and integration teams.",
+    image: "/images/optical-laboratory.jpg",
+    href: "/products/collimators",
+    types: [
+      {
+        name: "Autocollimation Systems",
+        description: "Angular alignment and optical-axis reference systems.",
+        models: productModels.filter((model) => model.type === "Autocollimation Systems")
+      },
+      {
+        name: "Optical Alignment Systems",
+        description: "Modular alignment workflows for payload and fixture integration.",
+        models: productModels.filter((model) => model.type === "Optical Alignment Systems")
+      },
+      {
+        name: "Wavefront Testing Solutions",
+        description: "Configurable benches for optical subsystem verification.",
+        models: productModels.filter((model) => model.type === "Wavefront Testing Solutions")
+      }
+    ]
+  },
+  {
+    name: "Laser and Optical Components",
+    description: "Beam conditioning, infrared windows and precision optical assemblies.",
+    image: "/images/laser-communication.jpg",
+    href: "/products/optical-components",
+    types: [
+      {
+        name: "Laser Beam Expanders",
+        description: "Beam expansion modules for photonics and alignment systems.",
+        models: productModels.filter((model) => model.type === "Laser Beam Expanders")
+      },
+      {
+        name: "Infrared Optical Components",
+        description: "Infrared windows and assemblies for NIR through LWIR use cases.",
+        models: productModels.filter((model) => model.type === "Infrared Optical Components")
+      },
+      {
+        name: "Precision Optical Components",
+        description: "Prisms, windows, pellicles and beam-control components.",
+        models: productModels.filter((model) => model.type === "Precision Optical Components")
+      }
+    ]
+  },
+  {
+    name: "Custom Opto-Mechanical Systems",
+    description: "Application-specific optical design, integration and test fixtures.",
+    image: "/images/engineering-team.jpg",
+    href: "/technology",
+    types: [
+      {
+        name: "Custom Testing Fixtures",
+        description: "Repeatable fixtures for optical testing and payload integration.",
+        models: productModels.filter((model) => model.type === "Custom Testing Fixtures")
+      }
+    ]
   }
 ];

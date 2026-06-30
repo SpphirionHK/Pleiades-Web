@@ -14,7 +14,8 @@
 body {
   margin: 0;
   background: #ffffff;
-  color: #20272d;
+  color: #111820;
+  font-family: Inter, Manrope, "IBM Plex Sans", "Source Sans 3", Arial, sans-serif;
 }
 
 body,
@@ -34,12 +35,12 @@ a,
 input,
 select,
 textarea {
-  outline-color: #f28c28;
+  outline-color: #006fb7;
   outline-offset: 3px;
 }
 
 ::selection {
-  background: rgba(242, 140, 40, 0.24);
+  background: rgba(0, 111, 183, 0.22);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -55,8 +56,8 @@ textarea {
 
 .technical-grid {
   background-image:
-    linear-gradient(rgba(18, 58, 90, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(18, 58, 90, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(0, 111, 183, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 111, 183, 0.055) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 

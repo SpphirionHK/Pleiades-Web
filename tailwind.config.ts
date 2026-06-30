@@ -10,27 +10,27 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
-          900: "#09273D",
-          800: "#123A5A",
-          700: "#1A4B70"
+          900: "#0B0F14",
+          800: "#005F9E",
+          700: "#006FB7"
         },
         accent: {
-          blue: "#1E6E9E",
-          orange: "#F28C28"
+          blue: "#006FB7",
+          orange: "#006FB7"
         },
         industrial: {
-          50: "#F8FAFB",
-          100: "#F3F5F6",
-          200: "#D8DEE3",
-          500: "#64717C",
-          900: "#20272D"
+          50: "#F7FAFC",
+          100: "#EDF3F7",
+          200: "#D6E0E7",
+          500: "#5E6B76",
+          900: "#111820"
         }
       },
       fontFamily: {
         sans: ["Inter", "Manrope", "IBM Plex Sans", "Source Sans 3", "Arial", "sans-serif"]
       },
       boxShadow: {
-        soft: "0 18px 45px rgba(9, 39, 61, 0.09)"
+        soft: "0 16px 38px rgba(0, 82, 138, 0.12)"
       }
     }
   },

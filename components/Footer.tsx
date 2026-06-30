@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { company } from "@/data/company";
 
 const footerGroups = [
@@ -29,28 +30,29 @@ const footerGroups = [
 
 export function Footer() {
   return (
-    <footer className="bg-industrial-100 px-6 py-12">
+    <footer className="bg-white px-6 py-12">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.4fr_2fr]">
         <div>
-          <Link href="/" className="flex items-center gap-3" aria-label="Pleiades home">
-            <span className="flex size-11 items-center justify-center bg-navy-800 text-lg font-bold text-white">
-              P
-            </span>
-            <span>
-              <span className="block text-sm font-bold uppercase tracking-[0.16em] text-navy-900">
-                Pleiades
-              </span>
-              <span className="block text-xs text-industrial-500">Optoelectronics HK</span>
+          <Link href="/" className="flex items-center" aria-label="Pleiades home">
+            <span className="relative block h-16 w-60 max-w-full">
+              <Image
+                src="/logo/company-logo-black.png"
+                alt="Pleiades Optoelectronics"
+                fill
+                sizes="240px"
+                className="object-contain object-left"
+              />
             </span>
           </Link>
           <p className="mt-5 max-w-md text-sm leading-6 text-industrial-500">
             Precision optical instruments, portable collimators and opto-mechatronic systems for
             aerospace, EO/IR, photonics and research applications.
           </p>
-          <p className="mt-5 text-sm font-semibold text-navy-900">{company.location}</p>
+          <p className="mt-5 text-sm font-semibold text-navy-900">{company.officeAddress}</p>
           <a className="mt-2 block text-sm text-accent-blue hover:text-accent-orange" href={`mailto:${company.email}`}>
             {company.email}
           </a>
+          <p className="mt-2 text-sm text-industrial-500">{company.phone}</p>
         </div>
         <div className="grid gap-8 sm:grid-cols-3">
           {footerGroups.map((group) => (
@@ -71,7 +73,7 @@ export function Footer() {
       </div>
       <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-industrial-200 pt-6 text-xs text-industrial-500 md:flex-row md:items-center md:justify-between">
         <p>© {new Date().getFullYear()} Pleiades Optoelectronics (Hong Kong) Limited.</p>
-        <p>Placeholder content should be reviewed before publication.</p>
+        <p>Precision optical instruments and opto-mechatronic systems.</p>
       </div>
     </footer>
   );

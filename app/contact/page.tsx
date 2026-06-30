@@ -32,7 +32,7 @@ export default function ContactPage() {
             />
             <div className="mt-8 grid gap-4">
               <ContactLine icon={Mail} label="Email" value={company.email} href={`mailto:${company.email}`} />
-              <ContactLine icon={MapPin} label="Location" value="Hong Kong" />
+              <ContactLine icon={MapPin} label="Address" value={company.officeAddress} />
               <ContactLine icon={Phone} label="Telephone" value={company.phone} />
             </div>
           </div>
@@ -81,7 +81,7 @@ function ContactLine({
 function InquiryForm() {
   return (
     <form
-      action="mailto:haixin.wang.hk@gmail.com"
+      action={`mailto:${company.email}`}
       method="post"
       encType="text/plain"
       className="border border-industrial-200 bg-white p-6 shadow-soft md:p-8"
@@ -127,7 +127,7 @@ function InquiryForm() {
       </label>
       <button
         type="submit"
-        className="mt-6 inline-flex min-h-11 w-full items-center justify-center bg-accent-orange px-5 text-sm font-bold text-navy-900 transition hover:bg-[#df7b16] md:w-auto"
+        className="mt-6 inline-flex min-h-11 w-full items-center justify-center bg-accent-blue px-5 text-sm font-bold text-white transition hover:bg-navy-800 md:w-auto"
       >
         Send Inquiry
       </button>

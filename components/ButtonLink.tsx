@@ -10,11 +10,11 @@ type ButtonLinkProps = {
 
 const variants = {
   primary:
-    "bg-accent-orange text-navy-900 hover:bg-[#df7b16] focus-visible:outline-accent-orange",
+    "bg-accent-blue text-white hover:bg-navy-800 focus-visible:outline-accent-blue",
   secondary:
-    "border border-navy-800/25 bg-white text-navy-800 hover:border-accent-orange hover:text-navy-900",
+    "border border-accent-blue bg-white text-accent-blue hover:bg-accent-blue hover:text-white",
   light:
-    "border border-white/35 bg-white/10 text-white hover:border-accent-orange hover:bg-white/15"
+    "border border-white/45 bg-transparent text-white hover:bg-white hover:text-accent-blue"
 };
 
 export function ButtonLink({

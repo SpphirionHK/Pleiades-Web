@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowRight, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { productMenuFamilies } from "@/data/products";
@@ -25,28 +24,28 @@ export function MegaMenu() {
   };
 
   const menuWidth =
-    activeFamilyIndex === null ? "w-[360px]" : activeTypeIndex === null ? "w-[690px]" : "w-[1120px]";
+    activeFamilyIndex === null ? "w-[380px]" : activeTypeIndex === null ? "w-[760px]" : "w-[1120px]";
   const gridColumns =
     activeFamilyIndex === null
-      ? "grid-cols-[360px]"
+      ? "grid-cols-[380px]"
       : activeTypeIndex === null
-        ? "grid-cols-[360px_330px]"
-        : "grid-cols-[360px_330px_430px]";
+        ? "grid-cols-[380px_380px]"
+        : "grid-cols-[380px_360px_380px]";
 
   return (
     <div
-      className={`absolute left-1/2 top-full z-40 hidden -translate-x-1/2 border border-industrial-200 bg-white shadow-soft transition-[width] duration-150 group-hover:block group-focus-within:block ${menuWidth}`}
+      className={`absolute left-1/2 top-full z-40 hidden -translate-x-1/2 border border-industrial-200 bg-white shadow-[0_18px_45px_rgba(17,24,32,0.16)] transition-[width] duration-150 group-hover:block group-focus-within:block ${menuWidth}`}
       onMouseLeave={() => {
         setActiveFamilyIndex(null);
         setActiveTypeIndex(null);
       }}
     >
-      <div className={`grid min-h-[460px] ${gridColumns}`}>
-        <div className="p-5">
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-accent-blue">
+      <div className={`grid min-h-[430px] ${gridColumns}`}>
+        <div className="p-7">
+          <p className="mb-5 text-xs font-bold uppercase tracking-[0.16em] text-accent-blue">
             Product Families
           </p>
-          <div className="space-y-3">
+          <div className="border-y border-industrial-200">
             {productMenuFamilies.map((family, index) => {
               const active = index === activeFamilyIndex;
 
@@ -56,30 +55,21 @@ export function MegaMenu() {
                   href={family.href}
                   onMouseEnter={() => selectFamily(index)}
                   onFocus={() => selectFamily(index)}
-                  className={`grid min-h-24 grid-cols-[88px_1fr_auto] items-center gap-4 border p-3 transition ${
+                  className={`group/family grid min-h-[74px] grid-cols-[1fr_auto] items-center gap-5 border-b border-industrial-200 px-5 py-4 transition last:border-b-0 ${
                     active
-                      ? "border-accent-blue bg-industrial-50"
-                      : "border-industrial-200 bg-white hover:border-accent-blue hover:bg-industrial-50"
+                      ? "bg-accent-blue text-white"
+                      : "bg-white text-navy-900 hover:bg-accent-blue hover:text-white"
                   }`}
                 >
-                  <span className="relative block aspect-[4/3] overflow-hidden bg-industrial-100">
-                    <Image
-                      src={family.image}
-                      alt={`${family.name} preview`}
-                      fill
-                      sizes="88px"
-                      className="object-cover"
-                    />
-                  </span>
                   <span>
-                    <span className="block text-sm font-semibold text-navy-900">
+                    <span className="block text-sm font-semibold">
                       {family.name}
                     </span>
-                    <span className="mt-1 block text-xs leading-5 text-industrial-500">
+                    <span className={`mt-1 block text-xs leading-5 ${active ? "text-white/78" : "text-industrial-500 group-hover/family:text-white/78"}`}>
                       {family.description}
                     </span>
                   </span>
-                  <ChevronRight aria-hidden="true" size={18} className="text-accent-blue" />
+                  <ChevronRight aria-hidden="true" size={18} className="shrink-0" />
                 </Link>
               );
             })}
@@ -87,11 +77,11 @@ export function MegaMenu() {
         </div>
 
         {activeFamily ? (
-          <div className="border-l border-industrial-200 bg-industrial-50 p-5">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-accent-blue">
+          <div className="border-l border-industrial-200 bg-white p-7">
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.16em] text-accent-blue">
               Product Types
             </p>
-            <div className="space-y-3">
+            <div className="border-y border-industrial-200">
               {activeTypes.map((type, index) => {
                 const active = index === safeTypeIndex;
 
@@ -100,61 +90,61 @@ export function MegaMenu() {
                     key={type.name}
                     type="button"
                     onMouseEnter={() => setActiveTypeIndex(index)}
-                    onFocus={() => setActiveTypeIndex(index)}
-                    onClick={() => setActiveTypeIndex(index)}
-                    className={`flex min-h-20 w-full items-start justify-between gap-3 border p-4 text-left transition ${
-                      active
-                        ? "border-accent-blue bg-white"
-                        : "border-industrial-200 bg-white hover:border-accent-blue"
-                    }`}
-                  >
-                    <span>
-                      <span className="block text-sm font-semibold text-navy-900">
-                        {type.name}
-                      </span>
-                      <span className="mt-1 block text-xs leading-5 text-industrial-500">
-                        {type.description}
-                      </span>
+                  onFocus={() => setActiveTypeIndex(index)}
+                  onClick={() => setActiveTypeIndex(index)}
+                  className={`group/type grid min-h-[68px] w-full grid-cols-[1fr_auto] items-center gap-5 border-b border-industrial-200 px-5 py-4 text-left transition last:border-b-0 ${
+                    active
+                      ? "bg-accent-blue text-white"
+                      : "bg-white text-navy-900 hover:bg-accent-blue hover:text-white"
+                  }`}
+                >
+                  <span>
+                    <span className="block text-sm font-semibold">
+                      {type.name}
                     </span>
-                    <ChevronRight
-                      aria-hidden="true"
-                      size={18}
-                      className="mt-0.5 shrink-0 text-accent-blue"
-                    />
-                  </button>
-                );
+                    <span className={`mt-1 block text-xs leading-5 ${active ? "text-white/78" : "text-industrial-500 group-hover/type:text-white/78"}`}>
+                      {type.description}
+                    </span>
+                  </span>
+                  <ChevronRight
+                    aria-hidden="true"
+                    size={18}
+                    className="shrink-0"
+                  />
+                </button>
+              );
               })}
             </div>
           </div>
         ) : null}
 
         {activeType ? (
-          <div className="border-l border-industrial-200 bg-white p-5">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-accent-blue">
+          <div className="border-l border-industrial-200 bg-white p-7">
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.16em] text-accent-blue">
               Models
             </p>
-            <div className="space-y-3">
+            <div className="border-y border-industrial-200">
               {activeModels.map((model) => (
                 <Link
                   key={model.slug}
                   href={`/products/models/${model.slug}`}
-                  className="group/model flex min-h-20 items-start justify-between gap-4 border border-industrial-200 bg-white p-4 transition hover:border-accent-blue hover:bg-industrial-50"
+                  className="group/model grid min-h-[68px] grid-cols-[1fr_auto] items-center gap-5 border-b border-industrial-200 px-5 py-4 transition last:border-b-0 hover:bg-accent-blue hover:text-white"
                 >
                   <span>
-                    <span className="block text-sm font-semibold text-navy-900">
+                    <span className="block text-sm font-semibold">
                       {model.name}
                     </span>
-                    <span className="mt-1 block text-xs leading-5 text-industrial-500">
+                    <span className="mt-1 block text-xs leading-5 text-industrial-500 group-hover/model:text-white/78">
                       {model.shortDescription}
                     </span>
                   </span>
                   <ArrowRight
-                    aria-hidden="true"
-                    size={16}
-                    className="mt-0.5 shrink-0 text-accent-blue transition group-hover/model:translate-x-1"
-                  />
-                </Link>
-              ))}
+                  aria-hidden="true"
+                  size={16}
+                  className="shrink-0 text-accent-blue transition group-hover/model:translate-x-1 group-hover/model:text-white"
+                />
+              </Link>
+            ))}
             </div>
           </div>
         ) : null}

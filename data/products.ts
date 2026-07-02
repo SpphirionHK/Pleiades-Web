@@ -147,7 +147,7 @@ export const productCategories: ProductCategory[] = [
 export const productModels: ProductModel[] = [
   {
     slug: "portabeam-pb-c100",
-    name: "PortaBeam PB-C100",
+    name: "Portable Coaxial Collimator",
     family: "Portable Collimators",
     type: "Cassegrain Portable Collimators",
     shortDescription: "Compact Cassegrain portable collimator for visible and near-infrared alignment.",
@@ -166,7 +166,7 @@ export const productModels: ProductModel[] = [
   },
   {
     slug: "portabeam-pb-c150",
-    name: "PortaBeam PB-C150",
+    name: "Off-Axis Collimator",
     family: "Portable Collimators",
     type: "Cassegrain Portable Collimators",
     shortDescription: "Larger-aperture Cassegrain configuration for higher-resolution target simulation.",
@@ -185,7 +185,7 @@ export const productModels: ProductModel[] = [
   },
   {
     slug: "portabeam-pb-oa80",
-    name: "PortaBeam PB-OA80",
+    name: "Cassegrain Target Collimator",
     family: "Portable Collimators",
     type: "Off-Axis Reflective Collimators",
     shortDescription: "Off-axis portable collimator configuration without central obstruction.",

@@ -399,19 +399,24 @@ export const productMenuFamilies: ProductMenuFamily[] = [
     href: "/products/collimators",
     types: [
       {
-        name: "Autocollimation Systems",
-        description: "Angular alignment and optical-axis reference systems.",
-        models: productModels.filter((model) => model.type === "Autocollimation Systems")
+        name: "Optical Reticles",
+        description: "Precision reticles for target projection, alignment and calibration.",
+        models: productModels.filter((model) => model.type === "Optical Reticles")
       },
       {
-        name: "Optical Alignment Systems",
-        description: "Modular alignment workflows for payload and fixture integration.",
-        models: productModels.filter((model) => model.type === "Optical Alignment Systems")
+        name: "Hollow Corner Cube Retroreflectors",
+        description: "Hollow retroreflectors for stable optical return paths and alignment references.",
+        models: productModels.filter((model) => model.type === "Hollow Corner Cube Retroreflectors")
       },
       {
-        name: "Wavefront Testing Solutions",
-        description: "Configurable benches for optical subsystem verification.",
-        models: productModels.filter((model) => model.type === "Wavefront Testing Solutions")
+        name: "Optical Retarders",
+        description: "Retarder components for polarization control and optical testing workflows.",
+        models: productModels.filter((model) => model.type === "Optical Retarders")
+      },
+      {
+        name: "Flat Mirrors",
+        description: "Precision flat mirrors for alignment, beam folding and optical test benches.",
+        models: productModels.filter((model) => model.type === "Flat Mirrors")
       }
     ]
   },

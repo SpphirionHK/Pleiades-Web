@@ -204,17 +204,17 @@ export const productModels: ProductModel[] = [
   },
   {
     slug: "portabeam-pb-oa120",
-    name: "PortaBeam PB-OA120",
+    name: "Maksutov Target Collimator",
     family: "Portable Collimators",
     type: "Off-Axis Reflective Collimators",
-    shortDescription: "Mid-aperture off-axis reflective collimator for EO/IR payload work.",
+    shortDescription: "Maksutov target collimator for compact EO/IR alignment and calibration.",
     description:
-      "PB-OA120 provides an unobstructed reflective optical path for EO/IR calibration workflows that benefit from portable setup and flexible mounting.",
+      "Maksutov Target Collimator is a compact catadioptric target collimator concept for EO/IR calibration workflows that need stable target projection, portable setup and flexible mounting.",
     image: "/images/portabeam-optical-layout.jpg",
-    applications: ["EO/IR payload calibration", "Boresight alignment", "Infrared target simulation"],
-    features: ["Unobstructed beam path", "Mid-aperture configuration", "Custom target module support"],
+    applications: ["EO/IR payload calibration", "Boresight alignment", "Compact target simulation"],
+    features: ["Maksutov catadioptric architecture", "Compact target projection", "Custom target module support"],
     specifications: [
-      { label: "Optical architecture", value: "Off-axis reflective", status: "draft" },
+      { label: "Optical architecture", value: "Maksutov catadioptric", status: "draft" },
       { label: "Nominal aperture", value: "120 mm class", status: "draft" },
       { label: "Target module", value: "Application-specific reticle and illumination", status: "draft" },
       { label: "Use case", value: "EO/IR field and laboratory testing", status: "draft" }

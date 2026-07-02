@@ -376,17 +376,17 @@ export const productMenuFamilies: ProductMenuFamily[] = [
     href: "/products/portabeam",
     types: [
       {
-        name: "Cassegrain Portable Collimators",
+        name: "Reflective Collimators",
         description: "Coaxial reflective architecture for compact portable calibration.",
         models: productModels.filter((model) => model.type === "Cassegrain Portable Collimators")
       },
       {
-        name: "Off-Axis Reflective Collimators",
+        name: "Catadioptric Collimators",
         description: "Unobstructed reflective path for VIS, NIR and IR testing.",
         models: productModels.filter((model) => model.type === "Off-Axis Reflective Collimators")
       },
       {
-        name: "Double-Reflective Collimators",
+        name: "Refractive Collimators",
         description: "Folded reflective designs for advanced infrared and compact layouts.",
         models: productModels.filter((model) => model.type === "Double-Reflective Collimators")
       }

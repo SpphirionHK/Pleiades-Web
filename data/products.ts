@@ -223,20 +223,20 @@ export const productModels: ProductModel[] = [
   },
   {
     slug: "portabeam-pb-dr100",
-    name: "PortaBeam PB-DR100",
+    name: "Short-Focal-Length Collimator",
     family: "Portable Collimators",
     type: "Double-Reflective Collimators",
-    shortDescription: "Double-reflective off-axis configuration for advanced infrared applications.",
+    shortDescription: "Short-focal-length collimator for compact target simulation and alignment.",
     description:
-      "PB-DR100 is a double-reflective portable collimator concept for advanced infrared testing where folded geometry and unobstructed optical performance are important.",
+      "Short-Focal-Length Collimator is a compact collimator concept for short working-distance target simulation, optical alignment and portable laboratory calibration workflows.",
     image: "/images/portabeam-optical-layout.jpg",
-    applications: ["Advanced IR sensor testing", "Folded optical bench layouts", "Thermal imaging alignment"],
-    features: ["Double-reflective layout", "Infrared-focused configuration", "Folded optical path"],
+    applications: ["Compact target simulation", "Short-range optical alignment", "Portable laboratory calibration"],
+    features: ["Short focal length layout", "Compact optical path", "Application-specific target support"],
     specifications: [
-      { label: "Optical architecture", value: "Double-reflective off-axis", status: "draft" },
+      { label: "Optical architecture", value: "Short-focal-length collimator", status: "draft" },
       { label: "Nominal aperture", value: "100 mm class", status: "draft" },
-      { label: "Spectral configuration", value: "IR-oriented by design", status: "draft" },
-      { label: "Layout", value: "Folded reflective path", status: "draft" }
+      { label: "Spectral configuration", value: "VIS / NIR / IR by design", status: "draft" },
+      { label: "Layout", value: "Compact folded optical path", status: "draft" }
     ],
     status: "draft"
   },

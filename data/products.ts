@@ -187,18 +187,18 @@ export const productModels: ProductModel[] = [
     slug: "portabeam-pb-oa80",
     name: "Cassegrain Target Collimator",
     family: "Portable Collimators",
-    type: "Off-Axis Reflective Collimators",
-    shortDescription: "Off-axis portable collimator configuration without central obstruction.",
+    type: "Cassegrain Portable Collimators",
+    shortDescription: "Cassegrain target collimator for repeatable infinity-target simulation.",
     description:
-      "PB-OA80 is an off-axis reflective collimator concept for visible and infrared optical testing where unobstructed beam geometry is preferred.",
-    image: "/images/infrared-testing.jpg",
-    applications: ["Infrared sensor alignment", "Thermal camera verification", "Low-obstruction optical testing"],
-    features: ["Off-axis reflective path", "No central obstruction", "Infrared-ready configuration"],
+      "Cassegrain Target Collimator is a coaxial reflective target collimator concept for visible and near-infrared calibration, focus verification and optical-axis alignment.",
+    image: "/images/collimator-product.jpg",
+    applications: ["Camera focus verification", "Optical-axis alignment", "Infinity-target simulation"],
+    features: ["Cassegrain target architecture", "Compact coaxial optical path", "Interchangeable target support"],
     specifications: [
-      { label: "Optical architecture", value: "Off-axis reflective", status: "draft" },
+      { label: "Optical architecture", value: "Cassegrain target collimator", status: "draft" },
       { label: "Nominal aperture", value: "80 mm class", status: "draft" },
-      { label: "Spectral configuration", value: "VIS / NIR / IR by design", status: "draft" },
-      { label: "Central obstruction", value: "None", status: "draft" }
+      { label: "Spectral configuration", value: "VIS / NIR by design", status: "draft" },
+      { label: "Target module", value: "Crosshair, radial, resolution or custom", status: "draft" }
     ],
     status: "draft"
   },

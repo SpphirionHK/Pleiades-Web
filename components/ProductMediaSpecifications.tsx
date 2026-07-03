@@ -34,10 +34,12 @@ export function ProductMediaSpecifications({
             {specifications.map((spec) => (
               <div
                 key={spec.label}
-                className="grid gap-3 border-b border-accent-blue/60 py-4 text-sm last:border-b-0 md:grid-cols-[0.52fr_0.48fr]"
+                className="grid gap-3 border-b border-accent-blue/60 py-4 text-sm last:border-b-0 md:grid-cols-[0.38fr_0.62fr]"
               >
                 <span className="font-semibold text-navy-900">{spec.label}</span>
-                <span className="leading-6 text-industrial-500">{spec.value}</span>
+                <span className="leading-6 text-industrial-500 md:whitespace-nowrap">
+                  {spec.value}
+                </span>
               </div>
             ))}
           </div>

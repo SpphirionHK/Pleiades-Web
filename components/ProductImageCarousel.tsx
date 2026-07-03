@@ -36,14 +36,17 @@ export function ProductImageCarousel({
   const arrowClass = isDark
     ? "bg-transparent text-accent-blue transition hover:text-white"
     : "bg-white/90 text-navy-900 shadow-soft transition hover:bg-accent-blue hover:text-white";
-  const inactiveDotClass = isDark ? "bg-white/35 hover:bg-white/70" : "bg-white/75 hover:bg-white";
+  const activeDotClass = isDark ? "bg-accent-blue" : "bg-navy-900";
+  const inactiveDotClass = isDark ? "bg-white/35 hover:bg-white/70" : "bg-industrial-200 hover:bg-industrial-300";
+  const canShowPrevious = activeIndex > 0;
+  const canShowNext = activeIndex < imageCount - 1;
 
   const showPrevious = () => {
-    setActiveIndex((current) => (current - 1 + imageCount) % imageCount);
+    setActiveIndex((current) => Math.max(0, current - 1));
   };
 
   const showNext = () => {
-    setActiveIndex((current) => (current + 1) % imageCount);
+    setActiveIndex((current) => Math.min(imageCount - 1, current + 1));
   };
 
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
@@ -127,7 +130,10 @@ export function ProductImageCarousel({
             aria-label="Show previous product image"
             onClick={showPrevious}
             onPointerDown={(event) => event.stopPropagation()}
-            className={`absolute left-4 top-1/2 flex size-11 -translate-y-1/2 cursor-pointer items-center justify-center ${arrowClass}`}
+            disabled={!canShowPrevious}
+            className={`absolute left-4 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center ${arrowClass} ${
+              canShowPrevious ? "cursor-pointer" : "cursor-default opacity-35"
+            }`}
           >
             <ChevronLeft aria-hidden="true" size={24} />
           </button>
@@ -136,7 +142,10 @@ export function ProductImageCarousel({
             aria-label="Show next product image"
             onClick={showNext}
             onPointerDown={(event) => event.stopPropagation()}
-            className={`absolute right-4 top-1/2 flex size-11 -translate-y-1/2 cursor-pointer items-center justify-center ${arrowClass}`}
+            disabled={!canShowNext}
+            className={`absolute right-4 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center ${arrowClass} ${
+              canShowNext ? "cursor-pointer" : "cursor-default opacity-35"
+            }`}
           >
             <ChevronRight aria-hidden="true" size={24} />
           </button>
@@ -148,8 +157,8 @@ export function ProductImageCarousel({
                 aria-label={`Show product image ${index + 1}`}
                 onClick={() => setActiveIndex(index)}
                 onPointerDown={(event) => event.stopPropagation()}
-                className={`size-2.5 cursor-pointer border border-white transition ${
-                  index === activeIndex ? "bg-accent-blue" : inactiveDotClass
+                className={`size-3 cursor-pointer rounded-full border border-industrial-300 transition ${
+                  index === activeIndex ? activeDotClass : inactiveDotClass
                 }`}
               />
             ))}

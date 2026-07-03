@@ -37,7 +37,11 @@ export function ProductMediaSpecifications({
                 className="grid gap-3 border-b border-accent-blue/60 py-4 text-sm last:border-b-0 md:grid-cols-[0.38fr_0.62fr]"
               >
                 <span className="font-semibold text-navy-900">{spec.label}</span>
-                <span className="leading-6 text-industrial-500 md:whitespace-nowrap">
+                <span
+                  className={`leading-6 text-industrial-500 ${
+                    spec.label === "Platform Size" ? "md:whitespace-nowrap" : ""
+                  }`}
+                >
                   {spec.value}
                 </span>
               </div>

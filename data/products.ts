@@ -371,16 +371,27 @@ export const productModels: ProductModel[] = [
     name: "OPS-2XZ",
     family: "Support Fixtures",
     type: "Optical Positioning Stages",
-    shortDescription: "Two-axis optical positioning stage for X/Z alignment workflows.",
+    shortDescription: "Dual-axis optical lab jack for vertical elevation and horizontal translation.",
     description:
-      "OPS-2XZ is an optical positioning stage concept for controlled X-axis and Z-axis adjustment in repeatable optical alignment setups.",
-    image: "/images/engineering-team.jpg",
-    applications: ["X/Z optical positioning", "Payload alignment", "Repeatable optical setup"],
-    features: ["Two-axis X/Z adjustment", "Fixture-ready mounting", "Repeatable positioning workflow"],
+      "Designed for precision optical positioning, the Dual-Axis Optical Lab Jack combines vertical elevation with forward-backward translation. A counterbalanced lifting mechanism provides smooth, stable adjustment, while a platform flatness deviation of less than 0.05 mm helps maintain alignment accuracy. With platform dimensions of up to 200 mm x 320 mm and a maximum load capacity of 35 kg, it is ideal for optical alignment, laser system calibration, and imaging-system stability testing.",
+    image: "/images/products/ops-2xz/stage-01.jpg",
+    galleryImages: ["/images/products/ops-2xz/stage-01.jpg"],
+    hideDefaultIntroNote: true,
+    applications: ["Optical alignment", "Laser system calibration", "Imaging-system stability testing"],
+    features: [
+      "Dual-axis vertical and horizontal adjustment",
+      "Counterbalanced lifting mechanism",
+      "Backlash-free precision positioning"
+    ],
     specifications: [
-      { label: "Stage type", value: "Optical positioning stage", status: "draft" },
-      { label: "Axes", value: "2XZ", status: "draft" },
-      { label: "Integration", value: "Bench or payload fixture", status: "draft" }
+      { label: "Adjustment Dimensions", value: "Dual-axis vertical Z-lift and horizontal X-shift", status: "draft" },
+      { label: "Lifting Accuracy", value: "<= 0.03 mm flatness error per 50 mm movement, backlash-free", status: "draft" },
+      { label: "Platform Size", value: "200 mm x 320 mm (height: 200 mm)", status: "draft" },
+      { label: "Base Size", value: "300 mm x 320 mm", status: "draft" },
+      { label: "Horizontal Travel", value: "100 mm", status: "draft" },
+      { label: "Lifting Range", value: "200-420 mm", status: "draft" },
+      { label: "Platform Weight", value: "16 kg", status: "draft" },
+      { label: "Load Capacity", value: "35 kg", status: "draft" }
     ],
     status: "draft"
   },

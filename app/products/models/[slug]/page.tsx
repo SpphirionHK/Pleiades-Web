@@ -78,7 +78,7 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
     { label: menuType?.name ?? model.type, href: typeHref },
     { label: model.name, href: `/products/models/${model.slug}` }
   ];
-  const showIntroductionInHero = model.slug === "ias-5d";
+  const showIntroductionInHero = model.slug === "ias-5d" || model.slug === "ops-2xz";
 
   return (
     <>
@@ -142,7 +142,7 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
         </section>
       )}
 
-      {model.galleryImages && model.galleryImages.length > 1 ? (
+      {model.galleryImages && model.galleryImages.length > 0 ? (
         <ProductMediaSpecifications
           images={model.galleryImages}
           imageAlt={`${model.name} product image`}

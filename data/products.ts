@@ -421,7 +421,7 @@ export const productMenuFamilies: ProductMenuFamily[] = [
     ]
   },
   {
-    name: "Confocal Microscope Objective",
+    name: "Optical Lenses and Objectives",
     description: "Beam conditioning, infrared windows and precision optical assemblies.",
     image: "/images/laser-communication.jpg",
     href: "/products/optical-components",

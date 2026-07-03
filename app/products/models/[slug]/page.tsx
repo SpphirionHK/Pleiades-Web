@@ -131,6 +131,15 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
         </div>
       </section>
 
+      <section className="px-6 pb-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading title="Specifications" />
+          <div className="mt-10">
+            <SpecificationTable specifications={model.specifications} />
+          </div>
+        </div>
+      </section>
+
       <section className="bg-industrial-100 px-6 py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
           <div>
@@ -153,18 +162,6 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            title="Model specifications"
-            description="Values are draft placeholders and can be replaced with verified model-level parameters."
-          />
-          <div className="mt-10">
-            <SpecificationTable specifications={model.specifications} />
           </div>
         </div>
       </section>

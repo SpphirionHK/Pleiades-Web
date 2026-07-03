@@ -349,20 +349,56 @@ export const productModels: ProductModel[] = [
     status: "draft"
   },
   {
-    slug: "custom-fixture-cfx",
-    name: "CFX Custom Test Fixture",
-    family: "Custom Opto-Mechanical Systems",
-    type: "Custom Testing Fixtures",
-    shortDescription: "Custom fixture concept for repeatable optical testing and integration workflows.",
+    slug: "ops-1z",
+    name: "OPS-1Z",
+    family: "Support Fixtures",
+    type: "Optical Positioning Stages",
+    shortDescription: "Single-axis optical positioning stage for precise Z-axis adjustment.",
     description:
-      "CFX is a custom opto-mechanical fixture development path for customers who need repeatable alignment, test positioning or payload integration support.",
+      "OPS-1Z is an optical positioning stage concept for controlled Z-axis adjustment in alignment, inspection and laboratory integration workflows.",
     image: "/images/engineering-team.jpg",
-    applications: ["Custom payload fixtures", "Repeatable test workflows", "Opto-mechanical integration"],
-    features: ["Requirement-driven design", "Optical and mechanical integration", "Documentation for repeatable setup"],
+    applications: ["Z-axis optical positioning", "Laboratory alignment", "Fixture integration"],
+    features: ["Single-axis Z adjustment", "Stable stage architecture", "Optical bench integration support"],
     specifications: [
-      { label: "System type", value: "Custom opto-mechanical fixture", status: "draft" },
-      { label: "Design basis", value: "Customer payload and test workflow", status: "draft" },
-      { label: "Deliverables", value: "Fixture, workflow and verification records", status: "draft" }
+      { label: "Stage type", value: "Optical positioning stage", status: "draft" },
+      { label: "Axes", value: "1Z", status: "draft" },
+      { label: "Integration", value: "Bench or fixture-mounted", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "ops-2xz",
+    name: "OPS-2XZ",
+    family: "Support Fixtures",
+    type: "Optical Positioning Stages",
+    shortDescription: "Two-axis optical positioning stage for X/Z alignment workflows.",
+    description:
+      "OPS-2XZ is an optical positioning stage concept for controlled X-axis and Z-axis adjustment in repeatable optical alignment setups.",
+    image: "/images/engineering-team.jpg",
+    applications: ["X/Z optical positioning", "Payload alignment", "Repeatable optical setup"],
+    features: ["Two-axis X/Z adjustment", "Fixture-ready mounting", "Repeatable positioning workflow"],
+    specifications: [
+      { label: "Stage type", value: "Optical positioning stage", status: "draft" },
+      { label: "Axes", value: "2XZ", status: "draft" },
+      { label: "Integration", value: "Bench or payload fixture", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "ias-5d",
+    name: "IAS-5D",
+    family: "Support Fixtures",
+    type: "Interferometer Alignment Stages",
+    shortDescription: "Five-degree interferometer alignment stage for precision setup workflows.",
+    description:
+      "IAS-5D is an interferometer alignment stage concept for multi-degree adjustment, optical-axis setup and precision measurement workflows.",
+    image: "/images/optical-laboratory.jpg",
+    applications: ["Interferometer alignment", "Optical-axis setup", "Precision measurement fixtures"],
+    features: ["Five-degree adjustment", "Interferometer workflow support", "Stable optical alignment platform"],
+    specifications: [
+      { label: "Stage type", value: "Interferometer alignment stage", status: "draft" },
+      { label: "Adjustment", value: "5D", status: "draft" },
+      { label: "Integration", value: "Interferometer bench or fixture", status: "draft" }
     ],
     status: "draft"
   }
@@ -440,9 +476,14 @@ export const productMenuFamilies: ProductMenuFamily[] = [
     href: "/technology",
     types: [
       {
-        name: "Custom Testing Fixtures",
-        description: "Repeatable fixtures for optical testing and payload integration.",
-        models: productModels.filter((model) => model.type === "Custom Testing Fixtures")
+        name: "Optical Positioning Stages",
+        description: "Positioning stages for controlled optical alignment and fixture integration.",
+        models: productModels.filter((model) => model.type === "Optical Positioning Stages")
+      },
+      {
+        name: "Interferometer Alignment Stages",
+        description: "Multi-degree alignment stages for interferometer setup and measurement workflows.",
+        models: productModels.filter((model) => model.type === "Interferometer Alignment Stages")
       }
     ]
   }

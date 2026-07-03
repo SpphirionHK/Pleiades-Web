@@ -296,19 +296,19 @@ export const productModels: ProductModel[] = [
   },
   {
     slug: "laser-beam-expander-lbx",
-    name: "LBX Laser Beam Expander",
+    name: "All-Reflective Confocal Objective",
     family: "Laser and Optical Components",
-    type: "Laser Beam Expanders",
-    shortDescription: "Laser beam expansion module for alignment and photonics systems.",
+    type: "Microscope Objectives",
+    shortDescription: "All-reflective confocal objective for broadband microscope imaging workflows.",
     description:
-      "LBX is a configurable laser beam expander concept for photonics alignment, optical communication and beam-conditioning applications.",
+      "All-Reflective Confocal Objective is a microscope objective concept for broadband confocal imaging, precision inspection and reflective optical measurement workflows.",
     image: "/images/laser-communication.jpg",
-    applications: ["Laser communication alignment", "Beam conditioning", "Photonics bench setup"],
-    features: ["Configurable expansion ratio", "Opto-mechanical integration", "Application-specific coating selection"],
+    applications: ["Confocal microscopy", "Precision optical inspection", "Broadband reflective imaging"],
+    features: ["All-reflective optical path", "Broadband wavelength support", "Confocal imaging integration"],
     specifications: [
-      { label: "Component type", value: "Laser beam expander", status: "draft" },
-      { label: "Expansion ratio", value: "Application-specific", status: "draft" },
-      { label: "Wavelength", value: "Defined by laser source", status: "draft" }
+      { label: "Component type", value: "All-reflective confocal objective", status: "draft" },
+      { label: "Objective class", value: "Microscope objective", status: "draft" },
+      { label: "Wavelength", value: "Broadband configuration by design", status: "draft" }
     ],
     status: "draft"
   },
@@ -427,19 +427,9 @@ export const productMenuFamilies: ProductMenuFamily[] = [
     href: "/products/optical-components",
     types: [
       {
-        name: "Laser Beam Expanders",
-        description: "Beam expansion modules for photonics and alignment systems.",
-        models: productModels.filter((model) => model.type === "Laser Beam Expanders")
-      },
-      {
-        name: "Infrared Optical Components",
-        description: "Infrared windows and assemblies for NIR through LWIR use cases.",
-        models: productModels.filter((model) => model.type === "Infrared Optical Components")
-      },
-      {
-        name: "Precision Optical Components",
-        description: "Prisms, windows, pellicles and beam-control components.",
-        models: productModels.filter((model) => model.type === "Precision Optical Components")
+        name: "Microscope Objectives",
+        description: "Objective lens assemblies for confocal imaging and optical inspection.",
+        models: productModels.filter((model) => model.type === "Microscope Objectives")
       }
     ]
   },

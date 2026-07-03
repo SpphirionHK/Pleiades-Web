@@ -402,9 +402,13 @@ export const productModels: ProductModel[] = [
     applications: ["Interferometer alignment", "Optical-axis setup", "Precision measurement fixtures"],
     features: ["Five-degree adjustment", "Interferometer workflow support", "Stable optical alignment platform"],
     specifications: [
-      { label: "Stage type", value: "Interferometer alignment stage", status: "draft" },
-      { label: "Adjustment", value: "5D", status: "draft" },
-      { label: "Integration", value: "Interferometer bench or fixture", status: "draft" }
+      { label: "Platform Size", value: "520 mm (L) x 340 mm (W) x 320 mm (H)", status: "draft" },
+      { label: "X-Axis Travel (L-R)", value: "100 mm", status: "draft" },
+      { label: "Y-Axis Travel (F-B)", value: "200 mm", status: "draft" },
+      { label: "Z-Axis Elevation", value: "160 mm", status: "draft" },
+      { label: "Tilt Range (X/Y)", value: ">10 degrees", status: "draft" },
+      { label: "Net Weight", value: "50 kg", status: "draft" },
+      { label: "Load Capacity", value: "50 kg", status: "draft" }
     ],
     status: "draft"
   }

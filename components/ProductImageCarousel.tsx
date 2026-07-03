@@ -9,13 +9,15 @@ type ProductImageCarouselProps = {
   alt: string;
   className?: string;
   priority?: boolean;
+  tone?: "light" | "dark";
 };
 
 export function ProductImageCarousel({
   images,
   alt,
   className = "",
-  priority = false
+  priority = false,
+  tone = "light"
 }: ProductImageCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
@@ -28,6 +30,13 @@ export function ProductImageCarousel({
   if (imageCount === 0) {
     return null;
   }
+
+  const isDark = tone === "dark";
+  const frameClass = isDark ? "bg-[#2f2b2b]" : "bg-white";
+  const arrowClass = isDark
+    ? "bg-transparent text-accent-blue transition hover:text-white"
+    : "bg-white/90 text-navy-900 shadow-soft transition hover:bg-accent-blue hover:text-white";
+  const inactiveDotClass = isDark ? "bg-white/35 hover:bg-white/70" : "bg-white/75 hover:bg-white";
 
   const showPrevious = () => {
     setActiveIndex((current) => (current - 1 + imageCount) % imageCount);
@@ -82,7 +91,7 @@ export function ProductImageCarousel({
 
   return (
     <div
-      className={`group relative overflow-hidden bg-white ${imageCount > 1 ? "cursor-grab select-none active:cursor-grabbing" : ""} ${className}`}
+      className={`group relative overflow-hidden ${frameClass} ${imageCount > 1 ? "cursor-grab select-none active:cursor-grabbing" : ""} ${className}`}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={finishDrag}
@@ -118,7 +127,7 @@ export function ProductImageCarousel({
             aria-label="Show previous product image"
             onClick={showPrevious}
             onPointerDown={(event) => event.stopPropagation()}
-            className="absolute left-4 top-1/2 flex size-11 -translate-y-1/2 cursor-pointer items-center justify-center bg-white/90 text-navy-900 shadow-soft transition hover:bg-accent-blue hover:text-white"
+            className={`absolute left-4 top-1/2 flex size-11 -translate-y-1/2 cursor-pointer items-center justify-center ${arrowClass}`}
           >
             <ChevronLeft aria-hidden="true" size={24} />
           </button>
@@ -127,7 +136,7 @@ export function ProductImageCarousel({
             aria-label="Show next product image"
             onClick={showNext}
             onPointerDown={(event) => event.stopPropagation()}
-            className="absolute right-4 top-1/2 flex size-11 -translate-y-1/2 cursor-pointer items-center justify-center bg-white/90 text-navy-900 shadow-soft transition hover:bg-accent-blue hover:text-white"
+            className={`absolute right-4 top-1/2 flex size-11 -translate-y-1/2 cursor-pointer items-center justify-center ${arrowClass}`}
           >
             <ChevronRight aria-hidden="true" size={24} />
           </button>
@@ -140,7 +149,7 @@ export function ProductImageCarousel({
                 onClick={() => setActiveIndex(index)}
                 onPointerDown={(event) => event.stopPropagation()}
                 className={`size-2.5 cursor-pointer border border-white transition ${
-                  index === activeIndex ? "bg-accent-blue" : "bg-white/75 hover:bg-white"
+                  index === activeIndex ? "bg-accent-blue" : inactiveDotClass
                 }`}
               />
             ))}

@@ -4,7 +4,7 @@ import { BreadcrumbBar } from "@/components/BreadcrumbBar";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CTASection } from "@/components/CTASection";
 import { ImagePanel } from "@/components/ImagePanel";
-import { ProductImageCarousel } from "@/components/ProductImageCarousel";
+import { ProductMediaSpecifications } from "@/components/ProductMediaSpecifications";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SpecificationTable } from "@/components/SpecificationTable";
 import { productMenuFamilies, productModels } from "@/data/products";
@@ -98,47 +98,46 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
               </ButtonLink>
             </div>
           </div>
-          {model.galleryImages && model.galleryImages.length > 1 ? (
-            <ProductImageCarousel
-              images={model.galleryImages}
-              alt={`${model.name} product image`}
-              className="aspect-[4/3] shadow-soft"
-              priority
-            />
-          ) : (
-            <ImagePanel
-              src={model.image}
-              alt={`${model.name} product image`}
-              className="aspect-[4/3] shadow-soft"
-              priority
-            />
-          )}
+          <ImagePanel
+            src={model.image}
+            alt={`${model.name} product image`}
+            className="aspect-[4/3] shadow-soft"
+            priority
+          />
         </div>
       </section>
 
       <section className="bg-white px-6 py-16 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.38fr_0.62fr]">
-          <SectionHeading title="Product introduction" />
-          <div className="border-l-4 border-accent-blue pl-6 text-lg leading-8 text-industrial-500">
+        <div className="mx-auto max-w-4xl text-center">
+          <SectionHeading title="Product introduction" align="center" />
+          <div className="mt-8 text-lg leading-8 text-industrial-500">
             <p>{model.description}</p>
-            {model.hideDefaultIntroNote ? null : (
-              <p className="mt-5">
-                This page is structured as a model-level landing page so product copy,
-                specifications, images and downloads can be refined independently for each SKU.
-              </p>
-            )}
           </div>
+          {model.hideDefaultIntroNote ? null : (
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-industrial-500">
+              This page is structured as a model-level landing page so product copy,
+              specifications, images and downloads can be refined independently for each SKU.
+            </p>
+          )}
         </div>
       </section>
 
-      <section className="bg-industrial-50 px-6 py-20">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading title="Specifications" />
-          <div className="mt-8 shadow-[0_16px_40px_rgba(17,24,32,0.08)]">
-            <SpecificationTable specifications={model.specifications} />
+      {model.galleryImages && model.galleryImages.length > 1 ? (
+        <ProductMediaSpecifications
+          images={model.galleryImages}
+          imageAlt={`${model.name} product image`}
+          specifications={model.specifications}
+        />
+      ) : (
+        <section className="bg-industrial-50 px-6 py-20">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading title="Specifications" />
+            <div className="mt-8 shadow-[0_16px_40px_rgba(17,24,32,0.08)]">
+              <SpecificationTable specifications={model.specifications} />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="bg-white px-6 py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">

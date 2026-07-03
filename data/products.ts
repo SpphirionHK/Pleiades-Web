@@ -391,8 +391,14 @@ export const productModels: ProductModel[] = [
     type: "Interferometer Alignment Stages",
     shortDescription: "Five-degree interferometer alignment stage for precision setup workflows.",
     description:
-      "IAS-5D is an interferometer alignment stage concept for multi-degree adjustment, optical-axis setup and precision measurement workflows.",
-    image: "/images/optical-laboratory.jpg",
+      "This Interferometer Alignment Stage supports X, Y, Z-axis linear movement and tilt adjustments in both X and Y directions. It is designed for precision instrumentation like interferometers and optical metrology systems where stability and multi-degree fine adjustment are critical.",
+    image: "/images/products/ias-5d/stage-01.jpg",
+    galleryImages: [
+      "/images/products/ias-5d/stage-01.jpg",
+      "/images/products/ias-5d/stage-02.jpg",
+      "/images/products/ias-5d/stage-03.jpg"
+    ],
+    hideDefaultIntroNote: true,
     applications: ["Interferometer alignment", "Optical-axis setup", "Precision measurement fixtures"],
     features: ["Five-degree adjustment", "Interferometer workflow support", "Stable optical alignment platform"],
     specifications: [

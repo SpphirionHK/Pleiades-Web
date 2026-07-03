@@ -46,6 +46,8 @@ export type ProductModel = {
   shortDescription: string;
   description: string;
   image: string;
+  galleryImages?: string[];
+  hideDefaultIntroNote?: boolean;
   applications: string[];
   features: string[];
   specifications: Specification[];

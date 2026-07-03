@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CTASection } from "@/components/CTASection";
 import { ImagePanel } from "@/components/ImagePanel";
+import { ProductImageCarousel } from "@/components/ProductImageCarousel";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SpecificationTable } from "@/components/SpecificationTable";
 import { productModels } from "@/data/products";
@@ -53,7 +54,7 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
     "@type": "Product",
     name: model.name,
     description: model.description,
-    image: absoluteUrl(model.image),
+    image: absoluteUrl(model.galleryImages?.[0] ?? model.image),
     brand: {
       "@type": "Brand",
       name: "Pleiades Optoelectronics"
@@ -83,12 +84,21 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
               </ButtonLink>
             </div>
           </div>
-          <ImagePanel
-            src={model.image}
-            alt={`${model.name} product image`}
-            className="aspect-[4/3] shadow-soft"
-            priority
-          />
+          {model.galleryImages && model.galleryImages.length > 1 ? (
+            <ProductImageCarousel
+              images={model.galleryImages}
+              alt={`${model.name} product image`}
+              className="aspect-[4/3] shadow-soft"
+              priority
+            />
+          ) : (
+            <ImagePanel
+              src={model.image}
+              alt={`${model.name} product image`}
+              className="aspect-[4/3] shadow-soft"
+              priority
+            />
+          )}
         </div>
       </section>
 
@@ -97,10 +107,12 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
           <SectionHeading eyebrow="Model overview" title="Product introduction" />
           <div className="space-y-5 text-lg leading-8 text-industrial-500">
             <p>{model.description}</p>
-            <p>
-              This page is structured as a model-level landing page so product copy,
-              specifications, images and downloads can be refined independently for each SKU.
-            </p>
+            {model.hideDefaultIntroNote ? null : (
+              <p>
+                This page is structured as a model-level landing page so product copy,
+                specifications, images and downloads can be refined independently for each SKU.
+              </p>
+            )}
           </div>
         </div>
       </section>

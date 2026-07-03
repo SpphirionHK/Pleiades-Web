@@ -92,12 +92,14 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
             <p className="mt-6 text-xl leading-8 text-industrial-500">
               {model.shortDescription}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/contact">Request Technical Discussion</ButtonLink>
-              <ButtonLink href="/products" variant="secondary">
-                Back to Products
-              </ButtonLink>
-            </div>
+            {showIntroductionInHero ? null : (
+              <div className="mt-8 flex flex-wrap gap-3">
+                <ButtonLink href="/contact">Request Technical Discussion</ButtonLink>
+                <ButtonLink href="/products" variant="secondary">
+                  Back to Products
+                </ButtonLink>
+              </div>
+            )}
             {showIntroductionInHero ? (
               <div className="mt-12 max-w-2xl border-t border-accent-blue/45 pt-8">
                 <h2 className="text-3xl font-semibold leading-tight text-navy-900">
@@ -109,12 +111,22 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
               </div>
             ) : null}
           </div>
-          <ImagePanel
-            src={model.image}
-            alt={`${model.name} product image`}
-            className="aspect-[4/3] shadow-soft"
-            priority
-          />
+          <div>
+            <ImagePanel
+              src={model.image}
+              alt={`${model.name} product image`}
+              className="aspect-[4/3] shadow-soft"
+              priority
+            />
+            {showIntroductionInHero ? (
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+                <ButtonLink href="/contact">Request Technical Discussion</ButtonLink>
+                <ButtonLink href="/products" variant="secondary">
+                  Back to Products
+                </ButtonLink>
+              </div>
+            ) : null}
+          </div>
         </div>
       </section>
 

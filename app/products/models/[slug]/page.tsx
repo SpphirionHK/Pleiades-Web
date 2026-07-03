@@ -1,12 +1,13 @@
 import { CheckCircle2 } from "lucide-react";
 import { notFound } from "next/navigation";
+import { BreadcrumbBar } from "@/components/BreadcrumbBar";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CTASection } from "@/components/CTASection";
 import { ImagePanel } from "@/components/ImagePanel";
 import { ProductImageCarousel } from "@/components/ProductImageCarousel";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SpecificationTable } from "@/components/SpecificationTable";
-import { productModels } from "@/data/products";
+import { productMenuFamilies, productModels } from "@/data/products";
 import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
 
@@ -62,16 +63,29 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
     category: model.family,
     model: model.name
   };
+  const menuFamily = productMenuFamilies.find((family) =>
+    family.types.some((type) => type.models.some((item) => item.slug === model.slug))
+  );
+  const menuType = menuFamily?.types.find((type) =>
+    type.models.some((item) => item.slug === model.slug)
+  );
+  const typeHref = menuType?.models[0]
+    ? `/products/models/${menuType.models[0].slug}`
+    : `/products/models/${model.slug}`;
+  const breadcrumbItems = [
+    { label: "Products", href: "/products" },
+    { label: menuFamily?.name ?? model.family, href: menuFamily?.href ?? "/products" },
+    { label: menuType?.name ?? model.type, href: typeHref },
+    { label: model.name, href: `/products/models/${model.slug}` }
+  ];
 
   return (
     <>
+      <BreadcrumbBar items={breadcrumbItems} />
       <section className="technical-grid bg-industrial-50 px-6 py-16 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent-blue">
-              {model.family} / {model.type}
-            </p>
-            <h1 className="mt-4 text-4xl font-semibold leading-tight text-navy-900 md:text-6xl">
+            <h1 className="text-4xl font-semibold leading-tight text-navy-900 md:text-6xl">
               {model.name}
             </h1>
             <p className="mt-6 text-xl leading-8 text-industrial-500">

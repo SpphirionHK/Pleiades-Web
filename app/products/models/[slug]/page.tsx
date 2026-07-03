@@ -116,31 +116,31 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
         </div>
       </section>
 
-      <section className="px-6 py-20">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <SectionHeading eyebrow="Model overview" title="Product introduction" />
-          <div className="space-y-5 text-lg leading-8 text-industrial-500">
-            <p>{model.description}</p>
-            {model.hideDefaultIntroNote ? null : (
-              <p>
-                This page is structured as a model-level landing page so product copy,
-                specifications, images and downloads can be refined independently for each SKU.
-              </p>
-            )}
+      <section className="bg-industrial-50 px-6 py-20">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div className="border-l-4 border-accent-blue pl-6">
+            <SectionHeading eyebrow="Model overview" title="Product introduction" />
+            <div className="mt-7 space-y-5 text-lg leading-8 text-industrial-500">
+              <p>{model.description}</p>
+              {model.hideDefaultIntroNote ? null : (
+                <p>
+                  This page is structured as a model-level landing page so product copy,
+                  specifications, images and downloads can be refined independently for each SKU.
+                </p>
+              )}
+            </div>
+          </div>
+
+          <div>
+            <SectionHeading title="Specifications" />
+            <div className="mt-8 shadow-[0_16px_40px_rgba(17,24,32,0.08)]">
+              <SpecificationTable specifications={model.specifications} />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="px-6 pb-20">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading title="Specifications" />
-          <div className="mt-10">
-            <SpecificationTable specifications={model.specifications} />
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-industrial-100 px-6 py-20">
+      <section className="bg-white px-6 py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
           <div>
             <SectionHeading title="Key features" />

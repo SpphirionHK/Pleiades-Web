@@ -78,6 +78,7 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
     { label: menuType?.name ?? model.type, href: typeHref },
     { label: model.name, href: `/products/models/${model.slug}` }
   ];
+  const showIntroductionInHero = model.slug === "ias-5d";
 
   return (
     <>
@@ -97,6 +98,16 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
                 Back to Products
               </ButtonLink>
             </div>
+            {showIntroductionInHero ? (
+              <div className="mt-12 max-w-2xl border-t border-accent-blue/45 pt-8">
+                <h2 className="text-3xl font-semibold leading-tight text-navy-900">
+                  Product introduction
+                </h2>
+                <p className="mt-5 text-lg leading-8 text-industrial-500">
+                  {model.description}
+                </p>
+              </div>
+            ) : null}
           </div>
           <ImagePanel
             src={model.image}
@@ -107,20 +118,22 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
         </div>
       </section>
 
-      <section className="bg-white px-6 py-16 md:py-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <SectionHeading title="Product introduction" align="center" />
-          <div className="mt-8 text-lg leading-8 text-industrial-500">
-            <p>{model.description}</p>
+      {showIntroductionInHero ? null : (
+        <section className="bg-white px-6 py-16 md:py-20">
+          <div className="mx-auto max-w-4xl text-center">
+            <SectionHeading title="Product introduction" align="center" />
+            <div className="mt-8 text-lg leading-8 text-industrial-500">
+              <p>{model.description}</p>
+            </div>
+            {model.hideDefaultIntroNote ? null : (
+              <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-industrial-500">
+                This page is structured as a model-level landing page so product copy,
+                specifications, images and downloads can be refined independently for each SKU.
+              </p>
+            )}
           </div>
-          {model.hideDefaultIntroNote ? null : (
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-industrial-500">
-              This page is structured as a model-level landing page so product copy,
-              specifications, images and downloads can be refined independently for each SKU.
-            </p>
-          )}
-        </div>
-      </section>
+        </section>
+      )}
 
       {model.galleryImages && model.galleryImages.length > 1 ? (
         <ProductMediaSpecifications

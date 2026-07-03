@@ -25,7 +25,7 @@ export function MegaMenu() {
 
   return (
     <div
-      className="absolute left-1/2 top-full z-40 hidden w-[1120px] -translate-x-1/2 border border-industrial-200 bg-white shadow-[0_18px_45px_rgba(17,24,32,0.16)] group-hover:block group-focus-within:block"
+      className="pointer-events-none absolute left-1/2 top-full z-40 w-[1120px] -translate-x-1/2 -translate-y-3 border border-industrial-200 bg-white opacity-0 shadow-[0_18px_45px_rgba(17,24,32,0.16)] transition-[opacity,transform] duration-500 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100"
       onMouseLeave={() => {
         setActiveFamilyIndex(null);
         setActiveTypeIndex(null);

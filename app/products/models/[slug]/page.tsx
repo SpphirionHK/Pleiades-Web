@@ -78,7 +78,8 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
     { label: menuType?.name ?? model.type, href: typeHref },
     { label: model.name, href: `/products/models/${model.slug}` }
   ];
-  const showIntroductionInHero = model.slug === "ias-5d" || model.slug === "ops-2xz";
+  const showIntroductionInHero =
+    model.slug === "ias-5d" || model.slug === "ops-1z" || model.slug === "ops-2xz";
 
   return (
     <>

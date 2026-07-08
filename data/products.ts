@@ -353,16 +353,26 @@ export const productModels: ProductModel[] = [
     name: "OPS-1Z",
     family: "Support Fixtures",
     type: "Optical Positioning Stages",
-    shortDescription: "Single-axis optical positioning stage for precise Z-axis adjustment.",
+    shortDescription: "High-load single-axis optical lab jack for stable vertical adjustment.",
     description:
-      "OPS-1Z is an optical positioning stage concept for controlled Z-axis adjustment in alignment, inspection and laboratory integration workflows.",
-    image: "/images/engineering-team.jpg",
-    applications: ["Z-axis optical positioning", "Laboratory alignment", "Fixture integration"],
-    features: ["Single-axis Z adjustment", "Stable stage architecture", "Optical bench integration support"],
+      "OPS-1Z is designed for high-load and high-accuracy applications in optical experiments, laser calibration, and metrology platforms. Featuring a robust lifting mechanism and precise adjustment control, it enables stable and repeatable vertical movement under heavy loads.",
+    image: "/images/products/ops-1z/stage-01.jpg",
+    galleryImages: ["/images/products/ops-1z/stage-01.jpg"],
+    hideDefaultIntroNote: true,
+    applications: ["Optical experiments", "Laser calibration", "Metrology platforms"],
+    features: [
+      "High-load vertical adjustment",
+      "Robust lifting mechanism",
+      "Stable repeatable positioning"
+    ],
     specifications: [
-      { label: "Stage type", value: "Optical positioning stage", status: "draft" },
-      { label: "Axes", value: "1Z", status: "draft" },
-      { label: "Integration", value: "Bench or fixture-mounted", status: "draft" }
+      { label: "Adjustment Axis", value: "1D Z-axis vertical lift", status: "draft" },
+      { label: "Accuracy", value: "Flatness deviation <= 0.03 mm over any 50 mm lift; zero backlash throughout range", status: "draft" },
+      { label: "Platform Size", value: "200 mm x 320 mm", status: "draft" },
+      { label: "Initial Height", value: "150 mm", status: "draft" },
+      { label: "Lifting Range", value: "150-390 mm", status: "draft" },
+      { label: "Platform Weight", value: "11 kg", status: "draft" },
+      { label: "Load Capacity", value: "35 kg", status: "draft" }
     ],
     status: "draft"
   },

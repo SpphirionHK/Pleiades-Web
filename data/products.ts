@@ -373,7 +373,7 @@ export const productModels: ProductModel[] = [
     type: "Optical Positioning Stages",
     shortDescription: "Dual-axis optical lab jack for vertical elevation and horizontal translation.",
     description:
-      "Designed for precision optical positioning, the Dual-Axis Optical Lab Jack combines vertical elevation with forward-backward translation. A counterbalanced lifting mechanism provides smooth, stable adjustment, while a platform flatness deviation of less than 0.05 mm helps maintain alignment accuracy. With platform dimensions of up to 200 mm x 320 mm and a maximum load capacity of 35 kg, it is ideal for optical alignment, laser system calibration, and imaging-system stability testing.",
+      "OPS-2XZ combines vertical elevation and forward–backward translation for precise optical positioning. With smooth counterbalanced adjustment, platform flatness below 0.05 mm, and a load capacity of up to 35 kg, it is ideal for optical alignment, laser calibration, and imaging-system stability testing.",
     image: "/images/products/ops-2xz/stage-01.jpg",
     galleryImages: ["/images/products/ops-2xz/stage-01.jpg"],
     hideDefaultIntroNote: true,

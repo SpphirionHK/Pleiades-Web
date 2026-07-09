@@ -297,18 +297,29 @@ export const productModels: ProductModel[] = [
   {
     slug: "laser-beam-expander-lbx",
     name: "All-Reflective Confocal Objective",
-    family: "Laser and Optical Components",
+    family: "Optical Lenses and Objectives",
     type: "Microscope Objectives",
     shortDescription: "All-reflective confocal objective for broadband microscope imaging workflows.",
     description:
-      "All-Reflective Confocal Objective is a microscope objective concept for broadband confocal imaging, precision inspection and reflective optical measurement workflows.",
-    image: "/images/laser-communication.jpg",
+      "The All-Reflective Microscope Objective is designed for precision imaging and multi-wavelength optical analysis across ultraviolet, visible, and infrared spectral ranges. Its reflective optical architecture eliminates chromatic aberration, making it suitable for hyperspectral imaging, confocal microscopy, and advanced inspection systems that require high image quality and spectral consistency.",
+    image: "/images/products/all-reflective-confocal-objective/arco-01.png",
+    galleryImages: [
+      "/images/products/all-reflective-confocal-objective/arco-03.jpg",
+      "/images/products/all-reflective-confocal-objective/arco-01.png",
+      "/images/products/all-reflective-confocal-objective/arco-01.png"
+    ],
+    hideDefaultIntroNote: true,
     applications: ["Confocal microscopy", "Precision optical inspection", "Broadband reflective imaging"],
     features: ["All-reflective optical path", "Broadband wavelength support", "Confocal imaging integration"],
     specifications: [
-      { label: "Component type", value: "All-reflective confocal objective", status: "draft" },
-      { label: "Objective class", value: "Microscope objective", status: "draft" },
-      { label: "Wavelength", value: "Broadband configuration by design", status: "draft" }
+      { label: "Optical Design", value: "Cassegrain all-reflective", status: "draft" },
+      { label: "Magnification", value: "15×", status: "draft" },
+      { label: "Focal Length", value: "200 mm", status: "draft" },
+      { label: "Spectral Range", value: "200 nm – 14 μm", status: "draft" },
+      { label: "Configuration", value: "Infinity-corrected", status: "draft" },
+      { label: "Imaging Capability", value: "Multi-wavelength confocal imaging", status: "draft" },
+      { label: "Wavefront Error", value: "RMS < λ/15", status: "draft" },
+      { label: "Chromatic Performance", value: "No chromatic aberration by reflective design", status: "draft" }
     ],
     status: "draft"
   },

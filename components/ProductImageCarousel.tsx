@@ -109,7 +109,7 @@ export function ProductImageCarousel({
         }}
       >
         {images.map((image, index) => (
-          <div key={image} className="relative h-full min-w-full">
+          <div key={`${image}-${index}`} className="relative h-full min-w-full">
             <Image
               src={image}
               alt={`${alt} ${index + 1}`}
@@ -152,7 +152,7 @@ export function ProductImageCarousel({
           <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
             {images.map((image, index) => (
               <button
-                key={image}
+                key={`${image}-${index}`}
                 type="button"
                 aria-label={`Show product image ${index + 1}`}
                 onClick={() => setActiveIndex(index)}

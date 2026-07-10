@@ -64,14 +64,19 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
     model: model.name
   };
   const menuFamily = productMenuFamilies.find((family) =>
-    family.types.some((type) => type.models.some((item) => item.slug === model.slug))
+    family.types.some(
+      (type) =>
+        type.models.some((item) => item.slug === model.slug) ||
+        type.href === `/products/models/${model.slug}`
+    )
   );
   const menuType = menuFamily?.types.find((type) =>
-    type.models.some((item) => item.slug === model.slug)
+    type.models.some((item) => item.slug === model.slug) ||
+    type.href === `/products/models/${model.slug}`
   );
-  const typeHref = menuType?.models[0]
+  const typeHref = menuType?.href ?? (menuType?.models[0]
     ? `/products/models/${menuType.models[0].slug}`
-    : `/products/models/${model.slug}`;
+    : `/products/models/${model.slug}`);
   const breadcrumbItems = [
     { label: "Products", href: "/products" },
     { label: menuFamily?.name ?? model.family, href: menuFamily?.href ?? "/products" },
@@ -79,6 +84,7 @@ export default async function ProductModelPage({ params }: ProductModelPageProps
     { label: model.name, href: `/products/models/${model.slug}` }
   ];
   const showIntroductionInHero =
+    model.hideDefaultIntroNote ||
     model.slug === "ias-5d" ||
     model.slug === "laser-beam-expander-lbx" ||
     model.slug === "ops-1z" ||

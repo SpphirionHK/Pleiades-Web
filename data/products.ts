@@ -324,6 +324,94 @@ export const productModels: ProductModel[] = [
     status: "draft"
   },
   {
+    slug: "optical-reticles",
+    name: "Optical Reticles",
+    family: "Optical Testing Accessories",
+    type: "Optical Reticles",
+    shortDescription: "Precision reticles for target projection, alignment and calibration.",
+    description:
+      "Optical Reticles provide precision target patterns for projection, alignment, calibration and optical test workflows. They support repeatable reference generation for laboratory instruments, collimators and inspection systems.",
+    image: "/images/products/optical-testing-accessories/optical-reticles.jpg",
+    galleryImages: ["/images/products/optical-testing-accessories/optical-reticles.jpg"],
+    hideDefaultIntroNote: true,
+    applications: ["Target projection", "Optical alignment", "Instrument calibration"],
+    features: ["Precision pattern definition", "Multiple reticle formats", "Custom calibration target support"],
+    specifications: [
+      { label: "Component Type", value: "Optical reticle", status: "draft" },
+      { label: "Pattern Options", value: "Crosshair, radial, resolution and custom patterns", status: "draft" },
+      { label: "Application", value: "Target projection, alignment and calibration", status: "draft" },
+      { label: "Substrate", value: "Application-specific optical substrate", status: "draft" },
+      { label: "Customization", value: "Pattern, diameter and coating by requirement", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "hollow-corner-cube-retroreflectors",
+    name: "Hollow Corner Cube Retroreflectors",
+    family: "Optical Testing Accessories",
+    type: "Hollow Corner Cube Retroreflectors",
+    shortDescription: "Hollow retroreflectors for stable optical return paths and alignment references.",
+    description:
+      "Hollow Corner Cube Retroreflectors provide stable optical return paths for alignment, metrology and reference beam workflows. Their open reflective geometry supports high-precision return alignment without transmissive glass-path effects.",
+    image: "/images/products/optical-testing-accessories/hollow-corner-cube-retroreflectors.jpg",
+    galleryImages: ["/images/products/optical-testing-accessories/hollow-corner-cube-retroreflectors.jpg"],
+    hideDefaultIntroNote: true,
+    applications: ["Optical alignment", "Metrology reference paths", "Return-beam testing"],
+    features: ["Hollow reflective geometry", "Stable return path", "Precision alignment reference"],
+    specifications: [
+      { label: "Component Type", value: "Hollow corner cube retroreflector", status: "draft" },
+      { label: "Optical Function", value: "Stable retroreflection and return-path alignment", status: "draft" },
+      { label: "Configuration", value: "Open hollow reflective assembly", status: "draft" },
+      { label: "Mounting", value: "Fixture or bench integration by requirement", status: "draft" },
+      { label: "Customization", value: "Aperture and mechanical interface by application", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "optical-retarders",
+    name: "Optical Retarders",
+    family: "Optical Testing Accessories",
+    type: "Optical Retarders",
+    shortDescription: "Retarder components for polarization control and optical testing workflows.",
+    description:
+      "Optical Retarders are used for polarization control, phase adjustment and optical test workflows. They support controlled retardance in laboratory setups, calibration instruments and advanced optical inspection systems.",
+    image: "/images/products/optical-testing-accessories/optical-retarders.jpg",
+    galleryImages: ["/images/products/optical-testing-accessories/optical-retarders.jpg"],
+    hideDefaultIntroNote: true,
+    applications: ["Polarization control", "Phase adjustment", "Optical test instrumentation"],
+    features: ["Controlled retardance", "Precision optical mounting", "Application-specific wavelength support"],
+    specifications: [
+      { label: "Component Type", value: "Optical retarder", status: "draft" },
+      { label: "Optical Function", value: "Polarization and phase control", status: "draft" },
+      { label: "Retardance", value: "Application-specific configuration", status: "draft" },
+      { label: "Spectral Range", value: "Defined by wavelength requirement", status: "draft" },
+      { label: "Customization", value: "Retardance, aperture and mount by application", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
+    slug: "flat-mirrors",
+    name: "Flat Mirrors",
+    family: "Optical Testing Accessories",
+    type: "Flat Mirrors",
+    shortDescription: "Precision flat mirrors for alignment, beam folding and optical test benches.",
+    description:
+      "Flat Mirrors provide precision reflective surfaces for beam folding, alignment and optical test-bench integration. They are suitable for metrology, laboratory calibration and optical path setup where stable reflection quality is required.",
+    image: "/images/products/optical-testing-accessories/flat-mirrors.jpg",
+    galleryImages: ["/images/products/optical-testing-accessories/flat-mirrors.jpg"],
+    hideDefaultIntroNote: true,
+    applications: ["Beam folding", "Optical alignment", "Test-bench integration"],
+    features: ["Precision reflective surface", "Stable optical path control", "Fixture-ready mirror formats"],
+    specifications: [
+      { label: "Component Type", value: "Precision flat mirror", status: "draft" },
+      { label: "Optical Function", value: "Beam folding and alignment reference", status: "draft" },
+      { label: "Surface Quality", value: "Application-specific specification", status: "draft" },
+      { label: "Coating", value: "Defined by wavelength and environment", status: "draft" },
+      { label: "Customization", value: "Aperture, mount and coating by requirement", status: "draft" }
+    ],
+    status: "draft"
+  },
+  {
     slug: "infrared-window-iw-series",
     name: "IW Series Infrared Window",
     family: "Laser and Optical Components",
@@ -480,25 +568,29 @@ export const productMenuFamilies: ProductMenuFamily[] = [
         name: "Optical Reticles",
         description: "Precision reticles for target projection, alignment and calibration.",
         image: "/images/products/optical-testing-accessories/optical-reticles.jpg",
-        models: productModels.filter((model) => model.type === "Optical Reticles")
+        href: "/products/models/optical-reticles",
+        models: []
       },
       {
         name: "Hollow Corner Cube Retroreflectors",
         description: "Hollow retroreflectors for stable optical return paths and alignment references.",
         image: "/images/products/optical-testing-accessories/hollow-corner-cube-retroreflectors.jpg",
-        models: productModels.filter((model) => model.type === "Hollow Corner Cube Retroreflectors")
+        href: "/products/models/hollow-corner-cube-retroreflectors",
+        models: []
       },
       {
         name: "Optical Retarders",
         description: "Retarder components for polarization control and optical testing workflows.",
         image: "/images/products/optical-testing-accessories/optical-retarders.jpg",
-        models: productModels.filter((model) => model.type === "Optical Retarders")
+        href: "/products/models/optical-retarders",
+        models: []
       },
       {
         name: "Flat Mirrors",
         description: "Precision flat mirrors for alignment, beam folding and optical test benches.",
         image: "/images/products/optical-testing-accessories/flat-mirrors.jpg",
-        models: productModels.filter((model) => model.type === "Flat Mirrors")
+        href: "/products/models/flat-mirrors",
+        models: []
       }
     ]
   },

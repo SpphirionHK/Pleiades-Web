@@ -70,20 +70,13 @@ export function MegaMenu() {
             <div className="border-y border-industrial-200">
               {activeTypes.map((type, index) => {
                 const active = index === safeTypeIndex;
-
-                return (
-                  <button
-                    key={type.name}
-                    type="button"
-                    onMouseEnter={() => setActiveTypeIndex(index)}
-                    onFocus={() => setActiveTypeIndex(index)}
-                    onClick={() => setActiveTypeIndex(index)}
-                    className={`group/type grid min-h-[68px] w-full grid-cols-[1fr_auto] items-center gap-5 border-b border-industrial-200 px-5 py-4 text-left transition last:border-b-0 ${
-                      active
-                        ? "bg-accent-blue text-white"
-                        : "bg-white text-navy-900 hover:bg-accent-blue hover:text-white"
-                    }`}
-                  >
+                const typeItemClassName = `group/type grid min-h-[68px] w-full grid-cols-[1fr_auto] items-center gap-5 border-b border-industrial-200 px-5 py-4 text-left transition last:border-b-0 ${
+                  active
+                    ? "bg-accent-blue text-white"
+                    : "bg-white text-navy-900 hover:bg-accent-blue hover:text-white"
+                }`;
+                const typeItemContent = (
+                  <>
                     <span>
                       <span className="block text-sm font-semibold">
                         {type.name}
@@ -97,6 +90,29 @@ export function MegaMenu() {
                       size={18}
                       className="shrink-0"
                     />
+                  </>
+                );
+
+                return type.href ? (
+                  <Link
+                    key={type.name}
+                    href={type.href}
+                    onMouseEnter={() => setActiveTypeIndex(index)}
+                    onFocus={() => setActiveTypeIndex(index)}
+                    className={typeItemClassName}
+                  >
+                    {typeItemContent}
+                  </Link>
+                ) : (
+                  <button
+                    key={type.name}
+                    type="button"
+                    onMouseEnter={() => setActiveTypeIndex(index)}
+                    onFocus={() => setActiveTypeIndex(index)}
+                    onClick={() => setActiveTypeIndex(index)}
+                    className={typeItemClassName}
+                  >
+                    {typeItemContent}
                   </button>
                 );
               })}

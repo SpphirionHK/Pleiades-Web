@@ -58,6 +58,7 @@ export type ProductMenuType = {
   name: string;
   description: string;
   image?: string;
+  href?: string;
   models: ProductModel[];
 };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { productMenuFamilies } from "@/data/products";
@@ -33,9 +34,6 @@ export function MegaMenu() {
     >
       <div className="grid min-h-[430px] grid-cols-[380px_360px_380px]">
         <div className="p-7">
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.16em] text-accent-blue">
-            Product Families
-          </p>
           <div className="border-y border-industrial-200">
             {productMenuFamilies.map((family, index) => {
               const active = index === activeFamilyIndex;
@@ -68,9 +66,6 @@ export function MegaMenu() {
         </div>
 
         <div className="border-l border-industrial-200 bg-white p-7">
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.16em] text-accent-blue">
-            Product Types
-          </p>
           {activeFamily ? (
             <div className="border-y border-industrial-200">
               {activeTypes.map((type, index) => {
@@ -114,33 +109,52 @@ export function MegaMenu() {
         </div>
 
         <div className="border-l border-industrial-200 bg-white p-7">
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.16em] text-accent-blue">
-            Models
-          </p>
           {activeType ? (
-            <div className="border-y border-industrial-200">
-              {activeModels.map((model) => (
-                <Link
-                  key={model.slug}
-                  href={`/products/models/${model.slug}`}
-                  className="group/model grid min-h-[68px] grid-cols-[1fr_auto] items-center gap-5 border-b border-industrial-200 px-5 py-4 transition last:border-b-0 hover:bg-accent-blue hover:text-white"
-                >
-                  <span>
-                    <span className="block text-sm font-semibold">
-                      {model.name}
+            activeModels.length > 0 ? (
+              <div className="border-y border-industrial-200">
+                {activeModels.map((model) => (
+                  <Link
+                    key={model.slug}
+                    href={`/products/models/${model.slug}`}
+                    className="group/model grid min-h-[68px] grid-cols-[1fr_auto] items-center gap-5 border-b border-industrial-200 px-5 py-4 transition last:border-b-0 hover:bg-accent-blue hover:text-white"
+                  >
+                    <span>
+                      <span className="block text-sm font-semibold">
+                        {model.name}
+                      </span>
+                      <span className="mt-1 block text-xs leading-5 text-industrial-500 group-hover/model:text-white/78">
+                        {model.shortDescription}
+                      </span>
                     </span>
-                    <span className="mt-1 block text-xs leading-5 text-industrial-500 group-hover/model:text-white/78">
-                      {model.shortDescription}
-                    </span>
-                  </span>
-                  <ArrowRight
-                    aria-hidden="true"
-                    size={16}
-                    className="shrink-0 text-accent-blue transition group-hover/model:translate-x-1 group-hover/model:text-white"
-                  />
-                </Link>
-              ))}
-            </div>
+                    <ArrowRight
+                      aria-hidden="true"
+                      size={16}
+                      className="shrink-0 text-accent-blue transition group-hover/model:translate-x-1 group-hover/model:text-white"
+                    />
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="flex min-h-[330px] flex-col justify-center border-y border-industrial-200 py-8">
+                {activeType.image ? (
+                  <div className="relative mb-8 h-40 w-full">
+                    <Image
+                      src={activeType.image}
+                      alt={activeType.name}
+                      fill
+                      sizes="340px"
+                      className="object-contain"
+                    />
+                  </div>
+                ) : null}
+                <h3 className="text-2xl font-bold text-accent-blue">
+                  {activeType.name}
+                </h3>
+                <p className="mt-5 text-sm leading-7 text-industrial-500">
+                  {activeType.description}
+                </p>
+              </div>
+            )
           ) : (
             <div className="flex min-h-[280px] items-center border-y border-industrial-200 px-5 py-8 text-sm leading-6 text-industrial-500">
               Move over a product type to view available models.

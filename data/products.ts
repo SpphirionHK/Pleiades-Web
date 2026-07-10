@@ -479,21 +479,25 @@ export const productMenuFamilies: ProductMenuFamily[] = [
       {
         name: "Optical Reticles",
         description: "Precision reticles for target projection, alignment and calibration.",
+        image: "/images/products/optical-testing-accessories/optical-reticles.jpg",
         models: productModels.filter((model) => model.type === "Optical Reticles")
       },
       {
         name: "Hollow Corner Cube Retroreflectors",
         description: "Hollow retroreflectors for stable optical return paths and alignment references.",
+        image: "/images/products/optical-testing-accessories/hollow-corner-cube-retroreflectors.jpg",
         models: productModels.filter((model) => model.type === "Hollow Corner Cube Retroreflectors")
       },
       {
         name: "Optical Retarders",
         description: "Retarder components for polarization control and optical testing workflows.",
+        image: "/images/products/optical-testing-accessories/optical-retarders.jpg",
         models: productModels.filter((model) => model.type === "Optical Retarders")
       },
       {
         name: "Flat Mirrors",
         description: "Precision flat mirrors for alignment, beam folding and optical test benches.",
+        image: "/images/products/optical-testing-accessories/flat-mirrors.jpg",
         models: productModels.filter((model) => model.type === "Flat Mirrors")
       }
     ]

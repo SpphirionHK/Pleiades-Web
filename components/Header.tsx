@@ -4,7 +4,7 @@ import { ChevronDown, Mail, MapPin, Menu, Phone, Search, X } from "lucide-react"
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { MegaMenu } from "@/components/MegaMenu";
 import { productMenuFamilies } from "@/data/products";
@@ -21,26 +21,48 @@ const navItems = [
 
 export function Header() {
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [showTopBar, setShowTopBar] = useState(true);
+  const [megaMenuTop, setMegaMenuTop] = useState(168);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === href : pathname.startsWith(href);
 
-  useEffect(() => {
-    const updateTopBarVisibility = () => {
-      setShowTopBar(window.scrollY < 12);
-    };
+  const updateHeaderLayout = useCallback(() => {
+    setShowTopBar(window.scrollY < 12);
 
-    updateTopBarVisibility();
-    window.addEventListener("scroll", updateTopBarVisibility, { passive: true });
-
-    return () => window.removeEventListener("scroll", updateTopBarVisibility);
+    const nextTop = headerRef.current?.getBoundingClientRect().bottom;
+    if (typeof nextTop === "number") {
+      setMegaMenuTop(Math.max(0, Math.round(nextTop)));
+    }
   }, []);
 
+  useEffect(() => {
+    updateHeaderLayout();
+
+    const headerElement = headerRef.current;
+    const observer =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(updateHeaderLayout)
+        : null;
+
+    if (headerElement) {
+      observer?.observe(headerElement);
+    }
+    window.addEventListener("scroll", updateHeaderLayout, { passive: true });
+    window.addEventListener("resize", updateHeaderLayout);
+
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("scroll", updateHeaderLayout);
+      window.removeEventListener("resize", updateHeaderLayout);
+    };
+  }, [updateHeaderLayout]);
+
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-[0_2px_10px_rgba(17,24,32,0.12)]">
+    <header ref={headerRef} className="sticky top-0 z-50 bg-white shadow-[0_2px_10px_rgba(17,24,32,0.12)]">
       <div
         className={`hidden overflow-hidden bg-accent-blue text-white transition-[max-height,opacity,transform] duration-300 ease-out md:block ${
           showTopBar ? "max-h-14 opacity-100 translate-y-0" : "max-h-0 -translate-y-2 opacity-0"
@@ -78,7 +100,7 @@ export function Header() {
         <nav className="hidden items-center gap-5 lg:flex" aria-label="Main navigation">
           {navItems.map((item) =>
             item.hasMega ? (
-              <div key={item.href} className="group relative">
+              <div key={item.href} className="group relative" onMouseEnter={updateHeaderLayout}>
                 <Link
                   href={item.href}
                   className={`flex min-h-28 items-center gap-2 px-2 text-sm font-semibold uppercase tracking-normal transition ${
@@ -90,7 +112,7 @@ export function Header() {
                   {item.label}
                   <ChevronDown aria-hidden="true" size={16} />
                 </Link>
-                <MegaMenu showTopBar={showTopBar} />
+                <MegaMenu topOffset={megaMenuTop} />
               </div>
             ) : (
               <Link

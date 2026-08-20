@@ -6,7 +6,11 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { productMenuFamilies } from "@/data/products";
 
-export function MegaMenu() {
+type MegaMenuProps = {
+  showTopBar: boolean;
+};
+
+export function MegaMenu({ showTopBar }: MegaMenuProps) {
   const [activeFamilyIndex, setActiveFamilyIndex] = useState<number | null>(null);
   const [activeTypeIndex, setActiveTypeIndex] = useState<number | null>(null);
 
@@ -26,7 +30,9 @@ export function MegaMenu() {
 
   return (
     <div
-      className="pointer-events-none absolute left-1/2 top-full z-40 w-[1120px] -translate-x-1/2 -translate-y-3 border border-industrial-200 bg-white opacity-0 shadow-[0_18px_45px_rgba(17,24,32,0.16)] transition-[opacity,transform] duration-500 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100"
+      className={`pointer-events-none fixed left-1/2 z-[80] w-[1120px] max-w-[calc(100vw-48px)] -translate-x-1/2 -translate-y-3 border border-industrial-200 bg-white opacity-0 shadow-[0_18px_45px_rgba(17,24,32,0.16)] transition-[top,opacity,transform] duration-500 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 ${
+        showTopBar ? "top-[168px]" : "top-[112px]"
+      }`}
       onMouseLeave={() => {
         setActiveFamilyIndex(null);
         setActiveTypeIndex(null);

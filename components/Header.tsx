@@ -90,7 +90,7 @@ export function Header() {
                   {item.label}
                   <ChevronDown aria-hidden="true" size={16} />
                 </Link>
-                <MegaMenu />
+                <MegaMenu showTopBar={showTopBar} />
               </div>
             ) : (
               <Link

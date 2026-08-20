@@ -210,7 +210,8 @@ export const productModels: ProductModel[] = [
     shortDescription: "Maksutov target collimator for compact EO/IR alignment and calibration.",
     description:
       "Maksutov Target Collimator is a compact catadioptric target collimator concept for EO/IR calibration workflows that need stable target projection, portable setup and flexible mounting.",
-    image: "/images/portabeam-optical-layout.jpg",
+    image: "/images/products/portabeam-pb-oa120/maksutov-target-collimator-01.jpg",
+    galleryImages: ["/images/products/portabeam-pb-oa120/maksutov-target-collimator-01.jpg"],
     applications: ["EO/IR payload calibration", "Boresight alignment", "Compact target simulation"],
     features: ["Maksutov catadioptric architecture", "Compact target projection", "Custom target module support"],
     specifications: [

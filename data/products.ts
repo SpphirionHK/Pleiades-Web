@@ -332,7 +332,10 @@ export const productModels: ProductModel[] = [
     description:
       "Optical Reticles provide precision target patterns for projection, alignment, calibration and optical test workflows. They support repeatable reference generation for laboratory instruments, collimators and inspection systems.",
     image: "/images/products/optical-testing-accessories/optical-reticles.jpg",
-    galleryImages: ["/images/products/optical-testing-accessories/optical-reticles.jpg"],
+    galleryImages: [
+      "/images/products/optical-testing-accessories/optical-reticles.jpg",
+      "/images/products/optical-testing-accessories/optical-reticles-case.jpg"
+    ],
     hideDefaultIntroNote: true,
     applications: ["Target projection", "Optical alignment", "Instrument calibration"],
     features: ["Precision pattern definition", "Multiple reticle formats", "Custom calibration target support"],
